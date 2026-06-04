@@ -46,8 +46,16 @@ fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1002935622131888&ev=PageView&noscript=1"/></noscript>
 
-<!-- ═══ CONTENTSQUARE ═══ -->
-<script src="https://t.contentsquare.net/uxa/ce1a7e3831c1f.js"></script>
+<!-- ═══ HOTJAR ═══
+INSTRUCCIONES: Creá cuenta en hotjar.com → Sites → Add new site → copiá tu Site ID
+Reemplazá TU_HOTJAR_ID con el número (ej: 3456789)
+<script>
+(function(h,o,t,j,a,r){h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:TU_HOTJAR_ID,hjsv:6};a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+═══ FIN HOTJAR ═══ -->
 
 <!-- Crisp Chat removido por preferencia del usuario -->
 <script type="application/ld+json">
@@ -103,7 +111,7 @@ fbq('track','PageView');
   --font-display:'Syne',sans-serif;
   --font-body:'Inter',sans-serif;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--font-body);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
 
 /* CURSOR */
@@ -495,12 +503,20 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
   .form-row{grid-template-columns:1fr}
   .counter-strip{padding:2.5rem 1.5rem}
   .about-section::before{display:none}
+  .about-wrap{grid-template-columns:1fr!important}.about-wrap img{width:180px!important;height:180px!important}
   .contact-section::before{display:none}
   footer{padding:2rem 1.5rem}
   .guarantee-wrap{grid-template-columns:1fr}
   .postventa-grid{grid-template-columns:1fr}
   .postventa-header{flex-direction:column;align-items:flex-start}
   .proj-links{flex-direction:column;align-items:flex-start}
+  .plan-card{min-width:0}
+  .sc{min-width:0}
+  .testi-card{min-width:0}
+  .about-hl{min-width:0}
+  .proj-preview{max-width:100%;overflow:hidden}
+  .hero-stats{flex-wrap:wrap}
+  .faq-item{min-width:0}
 }
 
 /* REVEAL */
@@ -572,9 +588,9 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
               <a href="#portfolio" class="btn-outline">Ver trabajo <i class="ti ti-arrow-down"></i></a>
             </div>
             <div class="hero-stats">
-              <div class="hs-item"><div class="n">1<em>+</em></div><div class="l">proyectos<br>entregados</div></div>
               <div class="hs-item"><div class="n">100<em>%</em></div><div class="l">clientes<br>satisfechos</div></div>
               <div class="hs-item"><div class="n">24<em>hs</em></div><div class="l">respuesta<br>máxima</div></div>
+              <div class="hs-item"><div class="n">30<em>días</em></div><div class="l">soporte<br>incluido</div></div>
             </div>
           </div>
         </div>
@@ -638,7 +654,11 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
   <div class="inner">
     <div class="sec-num">Sobre mí</div>
     <h2 class="sec-title">La persona detrás<br>del <em>código</em></h2>
-    <div class="about-wrap">
+    <div class="about-wrap" style="display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:start">
+      <div class="reveal" style="text-align:center">
+        <img src="foto-perfil.jpeg" alt="Lucas Scolari" style="width:240px;height:240px;object-fit:cover;object-position:top;border-radius:16px;border:1px solid var(--border2);display:block;margin:0 auto"/>
+        <div style="margin-top:1rem;font-size:13px;color:var(--text3)">Lucas Scolari · Resistencia, Chaco</div>
+      </div>
       <div class="about-text reveal">
         <p>Soy <strong>Lucas Scolari</strong>, desarrollador web freelance de Resistencia, Chaco. Me especializo en construir sitios que no solo se ven bien, sino que <strong>trabajan activamente para el negocio de mis clientes</strong>.</p>
         <p>Empecé a programar por curiosidad y hoy lo hago por convicción: creo que cada emprendedor o PyME merece una presencia digital a la altura de lo que ofrece. <strong>Sin plantillas genéricas, sin atajos.</strong></p>
@@ -786,8 +806,6 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
     <h2 class="sec-title">Lo que dicen quienes<br><em>trabajaron conmigo</em></h2>
     <div class="testi-grid">
       <div class="testi-card reveal"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Lucas entendió exactamente lo que necesitábamos. El sitio quedó increíble y lo entregó antes de la fecha pactada. Muy profesional."</p><div class="testi-author"><div class="testi-av">MA</div><div><div class="testi-name">Mateo A.</div><div class="testi-role">Fundador, Neaboats</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Desde que tenemos la web nueva, los clientes llegan convencidos. El diseño genera mucha confianza. Excelente trabajo."</p><div class="testi-author"><div class="testi-av">CG</div><div><div class="testi-name">Cliente satisfecho</div><div class="testi-role">PyME local</div></div></div></div>
-      <div class="testi-card reveal"><div class="testi-quote">"</div><div class="testi-stars">★★★★★</div><p class="testi-text">"Súper atento y claro en todo momento. Nunca tuvimos dudas sobre el avance del proyecto. Lo recomiendo sin dudar."</p><div class="testi-author"><div class="testi-av">RV</div><div><div class="testi-name">Cliente satisfecho</div><div class="testi-role">Emprendedor</div></div></div></div>
     </div>
   </div>
 </section>
