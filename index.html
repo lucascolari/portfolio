@@ -530,7 +530,7 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
         <div class="proj-preview-inner">
           <div class="browser-chrome">
             <div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div>
-            <div class="browser-url">guileless-palmier-d886e3.netlify.app</div>
+            <div class="browser-url">neaboats.com</div>
           </div>
           <div class="proj-frame">
             <iframe src="about:blank" id="neaboatsFrame" title="Neaboats" loading="lazy"></iframe>
@@ -549,7 +549,7 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
           <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
         </div>
         <div class="proj-links">
-          <a href="https://guileless-palmier-d886e3.netlify.app/#" target="_blank" class="proj-link">Ver en vivo <i class="ti ti-arrow-right"></i></a>
+          <a href="https://neaboats.com" target="_blank" class="proj-link">Ver en vivo <i class="ti ti-arrow-right"></i></a>
           <a href="https://github.com/lucascolari" target="_blank" class="proj-github"><i class="ti ti-brand-github"></i> Ver código</a>
         </div>
       </div>
@@ -840,7 +840,7 @@ window.addEventListener('load',()=>{
   const f=document.getElementById('neaboatsFrame');
   if(f){
     f.onerror=showPH;
-    f.src='https://guileless-palmier-d886e3.netlify.app/#';
+    f.src='https://neaboats.com';
     setTimeout(()=>{try{if(!f.contentDocument||f.contentDocument.body.innerHTML==='')showPH()}catch(e){showPH()}},3000);
   }
   // VNS Studio
@@ -852,7 +852,7 @@ window.addEventListener('load',()=>{
 });
 function showPH(){
   const c=document.querySelector('.proj-frame');if(!c)return;
-  c.innerHTML='<div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(160deg,#06090a,#04100a)"><div style="font-size:3rem;opacity:0.35">⛵</div><div style="font-size:12px;color:rgba(255,255,255,0.22);text-align:center;line-height:1.6;letter-spacing:0.05em">guileless-palmier-d886e3.netlify.app<br><span style="font-size:11px;opacity:0.6">Abrí en vivo para ver el sitio</span></div></div>';
+  c.innerHTML='<div style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;background:linear-gradient(160deg,#06090a,#04100a)"><div style="font-size:3rem;opacity:0.35">⛵</div><div style="font-size:12px;color:rgba(255,255,255,0.22);text-align:center;line-height:1.6;letter-spacing:0.05em">neaboats.com<br><span style="font-size:11px;opacity:0.6">Abrí en vivo para ver el sitio</span></div></div>';
 }
 function showVNS(){
   const v=document.getElementById('vnsFrame');if(!v)return;
