@@ -540,32 +540,144 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
 .social-btn:hover{color:var(--g);border-color:var(--gborder);background:var(--gdim)}
 .footer-copy{font-size:12px;color:var(--text3);letter-spacing:0.02em}
 @media(max-width:900px){
-  nav{padding:0 1.5rem}.hero{padding:6rem 1.5rem 4rem}section{padding:5rem 1.5rem}
-  .hero-inner{grid-template-columns:1fr}.hero-bignumber{display:none}
-  .hero-grid-layout{grid-template-columns:1fr}.hero-card{display:none}
-  .hero h1{font-size:clamp(3rem,12vw,5rem)}
-  .hero-bottom{grid-template-columns:1fr}.hero-right-bottom{align-items:flex-start}
-  .hero-actions{justify-content:flex-start}
-  .services-grid{grid-template-columns:1fr}.sc.featured{grid-row:auto}
-  .project-card{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
-  .timeline::before{left:22px}.tl-dot{width:44px;height:44px;font-size:0.85rem}
-  .contact-wrap{grid-template-columns:1fr;gap:3rem}
-  .about-wrap{grid-template-columns:1fr;gap:3rem}
-  .nav-links,.nav-cta{display:none}.hamburger{display:block}
-  .footer-inner{justify-content:center;text-align:center}
-  .counter-inner{grid-template-columns:1fr 1fr;gap:2rem}
-  .c-item{border-right:none;padding:0}
-  .form-row{grid-template-columns:1fr}
-  .counter-strip{padding:2.5rem 1.5rem}
+  /* ── GLOBAL ── */
+  *{max-width:100%;word-break:break-word}
+  nav{padding:0 1.2rem}
+  section{padding:4rem 1.2rem}
+  .inner{padding:0}
+  
+  /* ── HERO: fix texto cortado ── */
+  .hero{padding:5.5rem 1.2rem 3rem;overflow-x:hidden}
+  .hero-inner{grid-template-columns:1fr;overflow:hidden}
+  .hero-bignumber{display:none}
+  .hero-grid-layout{grid-template-columns:1fr;gap:2rem}
+  .hero-card{display:none}
+  /* CLAVE: reducir font-size para que no se corte en mobile */
+  .hero h1{
+    font-size:clamp(2.4rem,9vw,4rem);
+    letter-spacing:-0.03em;
+    line-height:1.05;
+    word-break:keep-all;
+    overflow-wrap:break-word;
+  }
+  .hero h1 .line-outline{font-size:inherit}
+  .hero-tag{font-size:10px;margin-bottom:1.2rem}
+  .hero-bottom{grid-template-columns:1fr;gap:1.5rem;margin-top:1.5rem;padding-top:1.5rem}
+  .hero-right-bottom{align-items:flex-start;gap:1.2rem}
+  .hero-actions{justify-content:flex-start;flex-wrap:wrap;gap:10px}
+  .hero-actions a{font-size:13px;padding:12px 20px}
+  /* Stats del hero: 3 en fila compactos */
+  .hero-stats{display:flex;gap:1.5rem;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .hs-item .n{font-size:1.6rem}
+  .hs-item .l{font-size:10px}
+  .scroll-hint{display:none}
+  
+  /* ── COUNTERS: 2 columnas que no se corten ── */
+  .counter-strip{padding:2rem 1.2rem;overflow-x:hidden}
+  .counter-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.5rem 1rem;
+    max-width:100%;
+  }
+  .c-item{border-right:none;padding:0;text-align:center}
+  .c-num{font-size:2.2rem;letter-spacing:-0.03em;white-space:nowrap}
+  .c-label{font-size:11px}
+  
+  /* ── SERVICIOS: una columna, sin espacio vacío ── */
+  .services-grid{grid-template-columns:1fr;gap:12px}
+  .sc.featured{grid-row:auto}
+  .sc{padding:1.75rem 1.5rem}
+  .sc.featured{padding:1.75rem 1.5rem}
+  
+  /* ── ABOUT: foto centrada y bien recortada ── */
   .about-section::before{display:none}
-  .about-wrap{grid-template-columns:1fr!important}.about-wrap img{width:180px!important;height:180px!important}
-  .contact-section::before{display:none}
-  footer{padding:2rem 1.5rem}
-  .guarantee-wrap{grid-template-columns:1fr}
+  .about-wrap{
+    display:flex!important;
+    flex-direction:column!important;
+    gap:2rem;
+    grid-template-columns:unset!important;
+  }
+  .about-wrap > div:first-child{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  /* Foto de perfil: tamaño razonable en mobile, centrada, cara visible */
+  .about-wrap img{
+    width:180px!important;
+    height:220px!important;
+    object-position:center top!important;
+    border-radius:12px!important;
+    margin:0 auto!important;
+  }
+  
+  /* ── PORTFOLIO: una columna, screenshots visibles ── */
+  .project-card{
+    grid-template-columns:1fr;
+    margin-top:1.5rem;
+  }
+  .proj-preview{min-height:240px}
+  .proj-frame{
+    min-height:200px;
+    height:200px;
+  }
+  .proj-frame img{
+    height:200px!important;
+    min-height:200px!important;
+    object-fit:cover!important;
+    object-position:center top!important;
+  }
+  .proj-info{padding:1.75rem 1.5rem}
+  .proj-info h3{font-size:1.75rem}
+  .proj-links{flex-direction:column;align-items:flex-start;gap:10px}
+  
+  /* ── TESTIMONIOS ── */
+  .testi-grid{grid-template-columns:1fr}
+  .testi-text{font-size:15px}
+  
+  /* ── PROCESO / TIMELINE ── */
+  .timeline::before{left:22px}
+  .tl-dot{width:44px;height:44px;font-size:0.85rem}
+  
+  /* ── PLANES ── */
   .postventa-grid{grid-template-columns:1fr}
   .postventa-header{flex-direction:column;align-items:flex-start}
-  .proj-links{flex-direction:column;align-items:flex-start}
+  
+  /* ── GARANTÍAS ── */
+  .guarantee-wrap{grid-template-columns:1fr}
+  
+  /* ── CONTACTO ── */
+  .contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .contact-section::before{display:none}
+  .form-row{grid-template-columns:1fr}
+  
+  /* ── NAV ── */
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:block}
+  
+  /* ── FOOTER ── */
+  footer{padding:2rem 1.2rem}
+  .footer-inner{justify-content:center;text-align:center;flex-direction:column;gap:1.5rem}
+  .footer-socials{justify-content:center}
+  
+  /* ── GENERAL: evitar overflow horizontal ── */
+  body{overflow-x:hidden}
+  .hero,.ticker-section,.counter-strip,section,footer{overflow-x:hidden}
+}
+
+/* ── MOBILE PEQUEÑO (<480px) ── */
+@media(max-width:480px){
+  .hero h1{font-size:clamp(2rem,8vw,3rem)}
+  .c-num{font-size:1.8rem}
+  .hero-actions{flex-direction:column;width:100%}
+  .hero-actions a{width:100%;justify-content:center;text-align:center}
+  .btn-primary,.btn-outline{padding:13px 20px;font-size:13px}
+  .sc h3{font-size:1.15rem}
+  .plan-price .amount{font-size:1.8rem}
+  .proj-info h3{font-size:1.5rem}
+  .tl-item{gap:1.2rem}
+  .tl-content{padding-top:10px}
 }
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
