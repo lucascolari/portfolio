@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brief de proyecto web — Lucas Scolari</title>
+<meta name="description" content="Cuestionario inicial para tu proyecto web: contame sobre tu negocio, objetivos y estilo para empezar a diseñar tu sitio.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2322C55E'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace'>L</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* =====================================================
+     PALETA — Lucas Scolari (editá estos valores para
+     ajustar al hex exacto de tu marca)
+     ===================================================== */
+  :root{
+    --bg:#0B0F14;
+    --bg-glow:rgba(34,197,94,.07);
+    --surface:#11161D;
+    --surface-2:#161C24;
+    --ink:#E9EDF1;
+    --ink-soft:#98A2AD;
+    --line:#222A33;
+    --accent:#22C55E;
+    --accent-ink:#4ADE80;
+    --accent-soft:rgba(34,197,94,.12);
+    --warn:#F87171;
+    --code:#5F6B76;
+    --radius:12px;
+    --font-display:'Archivo',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --font-mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(900px 420px at 70% -10%, var(--bg-glow), transparent 70%);
+    background-repeat:no-repeat;
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:15.5px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-ink)}
+  ::selection{background:var(--accent);color:#06130B}
+
+  .shell{max-width:1120px;margin:0 auto;padding:0 20px 96px}
+
+  /* ---------- Header ---------- */
+  header.intro{padding:48px 0 40px;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .brand-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+  .wordmark{font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+  .wordmark i{font-style:normal;color:var(--accent)}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;margin-left:auto;
+    border:1px solid var(--line);border-radius:99px;padding:6px 14px;
+    font-size:12.5px;color:var(--ink-soft);background:var(--surface);
+  }
+  .badge .dot{width:7px;height:7px;border-radius:99px;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 var(--accent-soft)}50%{box-shadow:0 0 0 6px var(--accent-soft)}}
+  .doc-code{font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--code);display:flex;gap:14px;flex-wrap:wrap}
+  .doc-code span::before{content:"·";margin-right:14px;color:var(--line)}
+  .doc-code span:first-child::before{content:""}
+  header.intro h1{
+    font-family:var(--font-display);font-weight:800;
+    font-size:clamp(30px,4.6vw,46px);line-height:1.06;letter-spacing:-.015em;
+    margin:18px 0 16px;max-width:16ch;
+  }
+  header.intro h1 em{font-style:italic;color:var(--accent)}
+  header.intro p{max-width:58ch;color:var(--ink-soft)}
+  header.intro p strong{color:var(--ink)}
+
+  /* ---------- Layout ---------- */
+  .layout{display:grid;grid-template-columns:248px 1fr;gap:48px;align-items:start}
+
+  /* ---------- Rail ---------- */
+  .rail{position:sticky;top:24px}
+  .meter{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .meter-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--code)}
+  .meter-value{font-family:var(--font-display);font-weight:800;font-size:34px;letter-spacing:-.02em;margin:6px 0 10px}
+  .meter-bar{height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+  .meter-bar i{display:block;height:100%;width:0%;background:var(--accent);border-radius:99px;transition:width .35s ease}
+  .meter-hint{font-size:12.5px;color:var(--ink-soft);margin-top:10px}
+  nav.index{margin-top:18px;display:flex;flex-direction:column;gap:2px}
+  nav.index a{
+    display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink-soft);
+    font-size:13.5px;padding:7px 10px;border-radius:7px;
+  }
+  nav.index a b{font-family:var(--font-mono);font-weight:500;font-size:11.5px;color:var(--code);min-width:18px}
+  nav.index a:hover{background:var(--surface);color:var(--ink)}
+  nav.index a.done b{color:var(--accent)}
+  nav.index a.done::after{content:"✓";margin-left:auto;color:var(--accent);font-size:12px}
+
+  /* ---------- Sections ---------- */
+  .col{display:flex;flex-direction:column;gap:28px;min-width:0}
+  section.block{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;scroll-margin-top:24px}
+  .block-head{display:flex;align-items:baseline;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .block-head .num{font-family:var(--font-mono);font-size:13px;color:var(--accent);font-weight:600}
+  .block-head h2{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-.01em}
+
+  .field{padding:20px 0;border-bottom:1px dashed var(--line)}
+  .field:last-child{border-bottom:none;padding-bottom:4px}
+  .q{display:flex;gap:10px;align-items:baseline;margin-bottom:4px}
+  .q b{font-family:var(--font-mono);font-weight:500;font-size:12px;color:var(--code)}
+  .q label,.q .qt{font-weight:600;font-size:15.5px}
+  .q .req{color:var(--warn);font-weight:600}
+  .help{font-size:13px;color:var(--ink-soft);margin:2px 0 10px 32px;max-width:62ch}
+  .ctrl{margin-left:32px}
+  @media (max-width:560px){.help,.ctrl{margin-left:0}}
+
+  input[type=text],input[type=email],input[type=tel],input[type=date],textarea,select{
+    width:100%;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);
+    padding:10px 12px;font:inherit;font-size:14.5px;color:var(--ink);
+  }
+  input::placeholder,textarea::placeholder{color:var(--code)}
+  textarea{min-height:92px;resize:vertical}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+  .field.missing input[type=text],.field.missing input[type=email],.field.missing input[type=tel],.field.missing textarea{border-color:var(--warn);background:rgba(248,113,113,.08)}
+  .field.missing .q label,.field.missing .q .qt{color:var(--warn)}
+
+  .choices{display:flex;flex-wrap:wrap;gap:8px}
+  .choices.cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+  .chip{position:relative}
+  .chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .chip span{
+    display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;
+    padding:9px 13px;font-size:14px;background:var(--surface-2);cursor:pointer;user-select:none;
+    transition:background .12s,border-color .12s;height:100%;color:var(--ink-soft);
+  }
+  .chip span::before{
+    content:"";width:14px;height:14px;border:1.5px solid var(--code);border-radius:4px;flex:none;
+    background:var(--surface);transition:background .12s,border-color .12s;
+  }
+  .chip input[type=radio]+span::before{border-radius:99px}
+  .chip input:checked+span{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+  .chip input:checked+span::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 2.5px var(--surface)}
+  .chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:1px}
+  .subinput{margin-top:10px;display:none}
+  .subinput.show{display:block}
+
+  /* ---------- Footer / actions ---------- */
+  .actions{background:var(--surface);border:1px solid var(--accent);border-radius:var(--radius);padding:30px 32px;position:relative;overflow:hidden}
+  .actions::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 180px at 12% 0%, var(--accent-soft), transparent 70%);pointer-events:none}
+  .actions h2{font-family:var(--font-display);font-weight:700;font-size:21px;margin-bottom:8px;position:relative}
+  .actions p{color:var(--ink-soft);font-size:14px;max-width:60ch;margin-bottom:18px;position:relative}
+  .btn{
+    font:inherit;font-weight:600;font-size:15px;border:none;border-radius:8px;cursor:pointer;
+    padding:12px 22px;display:inline-flex;align-items:center;gap:8px;position:relative;
+  }
+  .btn-primary{background:var(--accent);color:#06130B}
+  .btn-primary:hover{background:var(--accent-ink)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-ink)}
+  .err-msg{display:none;margin-top:14px;font-size:13.5px;color:var(--warn);position:relative}
+  .err-msg.show{display:block}
+
+  /* ---------- Modal resumen ---------- */
+  dialog#resumen{
+    border:1px solid var(--line);border-radius:14px;padding:0;width:min(720px,calc(100vw - 32px));
+    box-shadow:0 24px 64px rgba(0,0,0,.5);background:var(--surface);color:var(--ink);
+  }
+  dialog::backdrop{background:rgba(4,8,12,.7)}
+  .modal-head{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+  .modal-head h3{font-family:var(--font-display);font-size:17px;font-weight:700;flex:1}
+  .modal-head button{background:none;border:none;font-size:20px;cursor:pointer;color:var(--ink-soft);padding:4px 8px}
+  .modal-body{padding:18px 22px}
+  .modal-body pre{
+    font-family:var(--font-mono);font-size:12.5px;line-height:1.6;white-space:pre-wrap;
+    background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:16px;
+    max-height:46vh;overflow:auto;color:var(--ink-soft);
+  }
+  .modal-actions{display:flex;flex-wrap:wrap;gap:10px;padding:0 22px 22px}
+  .toast{font-size:13px;color:var(--accent-ink);align-self:center;display:none}
+  .toast.show{display:inline}
+
+  /* ---------- Footer ---------- */
+  footer.site{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:var(--ink-soft)}
+  footer.site strong{color:var(--ink)}
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:880px){
+    .layout{grid-template-columns:1fr;gap:24px}
+    .rail{position:sticky;top:0;z-index:10}
+    nav.index{display:none}
+    .meter{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:0 0 var(--radius) var(--radius);border-top:none}
+    .meter-label{display:none}
+    .meter-value{font-size:20px;margin:0}
+    .meter-bar{flex:1}
+    .meter-hint{display:none}
+    #saveState{display:none}
+    section.block,.actions{padding:22px 18px}
+    .badge{margin-left:0}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <header class="intro">
+    <div class="brand-row">
+      <a class="wordmark" href="https://www.lucascolari.com" target="_blank" rel="noopener">Lucas<i>.</i></a>
+      <span class="badge"><span class="dot"></span>Disponible para nuevos proyectos</span>
+    </div>
+    <div class="doc-code"><span>Ficha de proyecto</span><span>Brief inicial</span><span id="devName"></span><span id="fecha"></span></div>
+    <h1>Contame todo sobre <em>tu próxima web</em>.</h1>
+    <p>Este cuestionario me da la información que necesito para diseñar y desarrollar tu sitio sin idas y vueltas. Te lleva entre 10 y 15 minutos, y <strong>tus respuestas se guardan automáticamente en este dispositivo</strong>: si se te cierra la pestaña, retomás donde dejaste. Los campos marcados con <strong style="color:var(--warn)">*</strong> son obligatorios.</p>
+  </header>
+
+  <div class="layout">
+
+    <!-- ===== Rail de progreso ===== -->
+    <aside class="rail" aria-label="Progreso del brief">
+      <div class="meter">
+        <div class="meter-label">Brief completado</div>
+        <div class="meter-value"><span id="pct">0</span>%</div>
+        <div class="meter-bar"><i id="bar"></i></div>
+        <div class="meter-hint" id="hint">0 de 0 respuestas clave</div>
+        <div class="meter-hint" id="saveState" style="color:var(--accent-ink)">Guardado automático activo</div>
+      </div>
+      <nav class="index" id="indice">
+        <a href="#s1" data-sec="s1"><b>01</b> Contacto</a>
+        <a href="#s2" data-sec="s2"><b>02</b> Tu negocio</a>
+        <a href="#s3" data-sec="s3"><b>03</b> Objetivo del sitio</a>
+        <a href="#s4" data-sec="s4"><b>04</b> Contenido</a>
+        <a href="#s5" data-sec="s5"><b>05</b> Diseño y estilo</a>
+        <a href="#s6" data-sec="s6"><b>06</b> Funcionalidades</a>
+        <a href="#s7" data-sec="s7"><b>07</b> Técnico y plazos</a>
+      </nav>
+    </aside>
+
+    <!-- ===== Formulario ===== -->
+    <form class="col" id="brief" novalidate>
+
+      <!-- 01 -->
+      <section class="block" id="s1">
+        <div class="block-head"><span class="num">01</span><h2>Contacto</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>1.1</b><label for="f11">Nombre y apellido <span class="req">*</span></label></div>
+          <div class="ctrl"><input type="text" id="f11" data-k="Nombre" autocomplete="name"></div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>1.2</b><label for="f12">Empresa o marca <span class="req">*</span></label></div>
+          <p class="help">Si todavía no tiene nombre, escribí el nombre tentativo o "a definir".</p>
+          <div class="ctrl"><input type="text" id="f12" data-k="Empresa / marca" autocomplete="organization"></div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>1.3</b><label for="f13">Email <span class="req">*</span></label></div>
+          <div class="ctrl"><input type="email" id="f13" data-k="Email" autocomplete="email"></div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>1.4</b><label for="f14">Teléfono / WhatsApp <span class="req">*</span></label></div>
+          <div class="ctrl"><input type="tel" id="f14" data-k="Teléfono" autocomplete="tel"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>1.5</b><span class="qt">¿Por dónde preferís que te contacte?</span></div>
+          <div class="ctrl choices" data-k="Canal de contacto preferido">
+            <label class="chip"><input type="radio" name="canal" value="WhatsApp"><span>WhatsApp</span></label>
+            <label class="chip"><input type="radio" name="canal" value="Email"><span>Email</span></label>
+            <label class="chip"><input type="radio" name="canal" value="Llamada telefónica"><span>Llamada</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>1.6</b><span class="qt">¿Cómo me conociste?</span></div>
+          <div class="ctrl choices" data-k="Cómo me conoció">
+            <label class="chip"><input type="radio" name="origen" value="Recomendación"><span>Recomendación</span></label>
+            <label class="chip"><input type="radio" name="origen" value="Redes sociales"><span>Redes sociales</span></label>
+            <label class="chip"><input type="radio" name="origen" value="Google"><span>Google</span></label>
+            <label class="chip"><input type="radio" name="origen" value="Otro"><span>Otro</span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 -->
+      <section class="block" id="s2">
+        <div class="block-head"><span class="num">02</span><h2>Tu negocio</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>2.1</b><label for="f21">¿A qué se dedica tu negocio? <span class="req">*</span></label></div>
+          <p class="help">Contámelo como se lo contarías a alguien que no lo conoce: qué vendés u ofrecés, hace cuánto, dónde.</p>
+          <div class="ctrl"><textarea id="f21" data-k="Descripción del negocio"></textarea></div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>2.2</b><label for="f22">¿Quiénes son tus clientes? <span class="req">*</span></label></div>
+          <p class="help">Edad aproximada, zona, si son particulares o empresas, qué buscan cuando llegan a vos.</p>
+          <div class="ctrl"><textarea id="f22" data-k="Público objetivo"></textarea></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>2.3</b><label for="f23">¿Qué te diferencia de la competencia?</label></div>
+          <div class="ctrl"><textarea id="f23" data-k="Diferencial"></textarea></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>2.4</b><label for="f24">Competidores o referentes de tu rubro</label></div>
+          <p class="help">Pegá los links de sus webs o redes si los tenés.</p>
+          <div class="ctrl"><textarea id="f24" data-k="Competidores / referentes"></textarea></div>
+        </div>
+      </section>
+
+      <!-- 03 -->
+      <section class="block" id="s3">
+        <div class="block-head"><span class="num">03</span><h2>Objetivo del sitio</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>3.1</b><span class="qt">¿Qué tipo de web necesitás? <span class="req">*</span></span></div>
+          <div class="ctrl choices cols" data-k="Tipo de web">
+            <label class="chip"><input type="radio" name="tipo" value="Sitio institucional"><span>Sitio institucional</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="Tienda online"><span>Tienda online</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="Landing page"><span>Landing page</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="Portfolio"><span>Portfolio</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="Blog / contenidos"><span>Blog / contenidos</span></label>
+            <label class="chip"><input type="radio" name="tipo" value="No estoy seguro/a"><span>No estoy seguro/a</span></label>
+          </div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>3.2</b><span class="qt">¿Cuál es el objetivo principal? <span class="req">*</span></span></div>
+          <p class="help">Elegí el más importante. Define qué priorizamos en el diseño.</p>
+          <div class="ctrl choices cols" data-k="Objetivo principal">
+            <label class="chip"><input type="radio" name="obj" value="Vender productos online"><span>Vender online</span></label>
+            <label class="chip"><input type="radio" name="obj" value="Generar consultas / presupuestos"><span>Generar consultas</span></label>
+            <label class="chip"><input type="radio" name="obj" value="Mostrar trabajos / dar presencia"><span>Mostrar trabajos</span></label>
+            <label class="chip"><input type="radio" name="obj" value="Tomar reservas o turnos"><span>Reservas / turnos</span></label>
+            <label class="chip"><input type="radio" name="obj" value="Informar sobre la empresa"><span>Informar</span></label>
+            <label class="chip"><input type="radio" name="obj" value="Otro"><span>Otro</span></label>
+          </div>
+          <div class="ctrl subinput" id="objOtro"><input type="text" placeholder="Contame cuál" data-k="Objetivo (otro)"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>3.3</b><label for="f33">¿Qué querés que haga el visitante al entrar?</label></div>
+          <p class="help">Por ejemplo: que me escriba por WhatsApp, que compre, que pida un turno, que deje su email.</p>
+          <div class="ctrl"><input type="text" id="f33" data-k="Acción esperada del visitante"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>3.4</b><span class="qt">¿Tenés una web actual?</span></div>
+          <div class="ctrl choices" data-k="Web actual">
+            <label class="chip"><input type="radio" name="webact" value="Sí" data-sub="webActSub"><span>Sí</span></label>
+            <label class="chip"><input type="radio" name="webact" value="No"><span>No</span></label>
+          </div>
+          <div class="ctrl subinput" id="webActSub">
+            <input type="text" placeholder="URL de tu web actual" data-k="URL web actual" style="margin-bottom:8px">
+            <textarea placeholder="¿Qué no te gusta o qué cambiarías de esa web?" data-k="Qué cambiar de la web actual"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 -->
+      <section class="block" id="s4">
+        <div class="block-head"><span class="num">04</span><h2>Contenido</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>4.1</b><span class="qt">¿Qué secciones imaginás en tu web? <span class="req">*</span></span></div>
+          <p class="help">Marcá todas las que apliquen. Después lo ajustamos juntos.</p>
+          <div class="ctrl choices cols" data-k="Secciones">
+            <label class="chip"><input type="checkbox" value="Inicio"><span>Inicio</span></label>
+            <label class="chip"><input type="checkbox" value="Quiénes somos"><span>Quiénes somos</span></label>
+            <label class="chip"><input type="checkbox" value="Servicios"><span>Servicios</span></label>
+            <label class="chip"><input type="checkbox" value="Productos / tienda"><span>Productos / tienda</span></label>
+            <label class="chip"><input type="checkbox" value="Portfolio / trabajos"><span>Portfolio / trabajos</span></label>
+            <label class="chip"><input type="checkbox" value="Testimonios"><span>Testimonios</span></label>
+            <label class="chip"><input type="checkbox" value="Preguntas frecuentes"><span>Preguntas frecuentes</span></label>
+            <label class="chip"><input type="checkbox" value="Blog / novedades"><span>Blog / novedades</span></label>
+            <label class="chip"><input type="checkbox" value="Contacto"><span>Contacto</span></label>
+            <label class="chip"><input type="checkbox" value="Otra" data-sub="secOtra"><span>Otra</span></label>
+          </div>
+          <div class="ctrl subinput" id="secOtra"><input type="text" placeholder="¿Qué otra sección?" data-k="Otra sección"></div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>4.2</b><span class="qt">¿Tenés los textos de la web? <span class="req">*</span></span></div>
+          <div class="ctrl choices" data-k="Textos">
+            <label class="chip"><input type="radio" name="textos" value="Sí, los tengo listos"><span>Los tengo listos</span></label>
+            <label class="chip"><input type="radio" name="textos" value="Tengo algunos, falta completar"><span>Tengo algunos</span></label>
+            <label class="chip"><input type="radio" name="textos" value="Necesito ayuda con la redacción"><span>Necesito ayuda con la redacción</span></label>
+          </div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>4.3</b><span class="qt">¿Tenés fotos o videos propios? <span class="req">*</span></span></div>
+          <div class="ctrl choices" data-k="Fotos / videos">
+            <label class="chip"><input type="radio" name="fotos" value="Sí, profesionales"><span>Sí, profesionales</span></label>
+            <label class="chip"><input type="radio" name="fotos" value="Sí, caseros (celular)"><span>Sí, caseros</span></label>
+            <label class="chip"><input type="radio" name="fotos" value="No, usar banco de imágenes"><span>No, usar banco de imágenes</span></label>
+          </div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>4.4</b><span class="qt">¿Tenés logo? <span class="req">*</span></span></div>
+          <div class="ctrl choices" data-k="Logo e identidad">
+            <label class="chip"><input type="radio" name="logo" value="Sí, logo + manual de marca (colores, tipografías)"><span>Logo + manual de marca</span></label>
+            <label class="chip"><input type="radio" name="logo" value="Solo el logo"><span>Solo el logo</span></label>
+            <label class="chip"><input type="radio" name="logo" value="No, necesito que se diseñe"><span>No tengo, necesito uno</span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 -->
+      <section class="block" id="s5">
+        <div class="block-head"><span class="num">05</span><h2>Diseño y estilo</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>5.1</b><label for="f51">Webs que te gustan <span class="req">*</span></label></div>
+          <p class="help">Pegá 2 o 3 links (de tu rubro o no) y contame qué te gusta de cada una: el estilo, los colores, cómo está organizada.</p>
+          <div class="ctrl"><textarea id="f51" data-k="Webs de referencia (gustan)"></textarea></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>5.2</b><label for="f52">Webs o estilos que NO te gustan</label></div>
+          <div class="ctrl"><textarea id="f52" data-k="Referencias negativas"></textarea></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>5.3</b><span class="qt">¿Qué estilo buscás?</span></div>
+          <div class="ctrl choices cols" data-k="Estilo buscado">
+            <label class="chip"><input type="checkbox" value="Minimalista / limpio"><span>Minimalista / limpio</span></label>
+            <label class="chip"><input type="checkbox" value="Moderno / tecnológico"><span>Moderno / tecnológico</span></label>
+            <label class="chip"><input type="checkbox" value="Elegante / premium"><span>Elegante / premium</span></label>
+            <label class="chip"><input type="checkbox" value="Corporativo / serio"><span>Corporativo / serio</span></label>
+            <label class="chip"><input type="checkbox" value="Juvenil / divertido"><span>Juvenil / divertido</span></label>
+            <label class="chip"><input type="checkbox" value="Colorido / llamativo"><span>Colorido / llamativo</span></label>
+            <label class="chip"><input type="checkbox" value="Oscuro / dark"><span>Oscuro / dark</span></label>
+            <label class="chip"><input type="checkbox" value="Cálido / artesanal"><span>Cálido / artesanal</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>5.4</b><label for="f54">Colores preferidos y colores a evitar</label></div>
+          <p class="help">Si tenés colores de marca, indicalos acá (o decime que use los del logo).</p>
+          <div class="ctrl"><input type="text" id="f54" data-k="Colores"></div>
+        </div>
+      </section>
+
+      <!-- 06 -->
+      <section class="block" id="s6">
+        <div class="block-head"><span class="num">06</span><h2>Funcionalidades</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>6.1</b><span class="qt">¿Qué necesita poder hacer tu web? <span class="req">*</span></span></div>
+          <p class="help">Marcá todo lo que te interese; después te confirmo qué conviene incluir desde el inicio.</p>
+          <div class="ctrl choices cols" data-k="Funcionalidades">
+            <label class="chip"><input type="checkbox" value="Formulario de contacto"><span>Formulario de contacto</span></label>
+            <label class="chip"><input type="checkbox" value="Botón de WhatsApp"><span>Botón de WhatsApp</span></label>
+            <label class="chip"><input type="checkbox" value="Tienda con pagos online"><span>Tienda con pagos online</span></label>
+            <label class="chip"><input type="checkbox" value="Catálogo sin pagos"><span>Catálogo sin pagos</span></label>
+            <label class="chip"><input type="checkbox" value="Reservas / turnos online"><span>Reservas / turnos</span></label>
+            <label class="chip"><input type="checkbox" value="Blog autoadministrable"><span>Blog autoadministrable</span></label>
+            <label class="chip"><input type="checkbox" value="Suscripción a newsletter"><span>Newsletter</span></label>
+            <label class="chip"><input type="checkbox" value="Sitio en varios idiomas"><span>Varios idiomas</span></label>
+            <label class="chip"><input type="checkbox" value="Mapa de ubicación"><span>Mapa de ubicación</span></label>
+            <label class="chip"><input type="checkbox" value="Integración con redes sociales"><span>Integración con redes</span></label>
+            <label class="chip"><input type="checkbox" value="Galería de fotos / videos"><span>Galería de fotos / videos</span></label>
+            <label class="chip"><input type="checkbox" value="Otra" data-sub="funOtra"><span>Otra</span></label>
+          </div>
+          <div class="ctrl subinput" id="funOtra"><input type="text" placeholder="¿Qué otra funcionalidad?" data-k="Otra funcionalidad"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>6.2</b><label for="f62">Si vas a cobrar online: ¿qué medios de pago?</label></div>
+          <p class="help">Por ejemplo: Mercado Pago, transferencia, tarjetas, etc.</p>
+          <div class="ctrl"><input type="text" id="f62" data-k="Medios de pago"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>6.3</b><label for="f63">Tus redes sociales</label></div>
+          <p class="help">Pegá los links de Instagram, Facebook, TikTok, LinkedIn, etc.</p>
+          <div class="ctrl"><textarea id="f63" data-k="Redes sociales"></textarea></div>
+        </div>
+      </section>
+
+      <!-- 07 -->
+      <section class="block" id="s7">
+        <div class="block-head"><span class="num">07</span><h2>Técnico y plazos</h2></div>
+
+        <div class="field" data-req>
+          <div class="q"><b>7.1</b><span class="qt">¿Tenés dominio? (ej. tunegocio.com.ar) <span class="req">*</span></span></div>
+          <div class="ctrl choices" data-k="Dominio">
+            <label class="chip"><input type="radio" name="dominio" value="Sí" data-sub="domSub"><span>Sí, ya lo tengo</span></label>
+            <label class="chip"><input type="radio" name="dominio" value="No, necesito ayuda para registrarlo"><span>No, necesito ayuda</span></label>
+            <label class="chip"><input type="radio" name="dominio" value="No sé qué es"><span>No sé qué es</span></label>
+          </div>
+          <div class="ctrl subinput" id="domSub"><input type="text" placeholder="¿Cuál es tu dominio?" data-k="Dominio actual"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>7.2</b><span class="qt">¿Tenés hosting contratado?</span></div>
+          <div class="ctrl choices" data-k="Hosting">
+            <label class="chip"><input type="radio" name="hosting" value="Sí" data-sub="hostSub"><span>Sí</span></label>
+            <label class="chip"><input type="radio" name="hosting" value="No, necesito que me recomienden"><span>No</span></label>
+            <label class="chip"><input type="radio" name="hosting" value="No sé qué es"><span>No sé qué es</span></label>
+          </div>
+          <div class="ctrl subinput" id="hostSub"><input type="text" placeholder="¿Con qué empresa?" data-k="Proveedor de hosting"></div>
+        </div>
+
+        <div class="field" data-req>
+          <div class="q"><b>7.3</b><span class="qt">¿Para cuándo necesitás la web? <span class="req">*</span></span></div>
+          <div class="ctrl choices" data-k="Plazo">
+            <label class="chip"><input type="radio" name="plazo" value="Es urgente (menos de 1 mes)"><span>Urgente (&lt; 1 mes)</span></label>
+            <label class="chip"><input type="radio" name="plazo" value="1 a 2 meses"><span>1–2 meses</span></label>
+            <label class="chip"><input type="radio" name="plazo" value="2 a 3 meses"><span>2–3 meses</span></label>
+            <label class="chip"><input type="radio" name="plazo" value="Sin apuro"><span>Sin apuro</span></label>
+          </div>
+          <div class="ctrl" style="margin-top:10px"><input type="text" placeholder="¿Hay una fecha límite concreta? (lanzamiento, evento, temporada…)" data-k="Fecha límite"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>7.4</b><label for="f74">Presupuesto aproximado que tenés en mente</label></div>
+          <p class="help">Es orientativo y no te compromete: me ayuda a proponerte la mejor solución dentro de ese rango.</p>
+          <div class="ctrl"><input type="text" id="f74" data-k="Presupuesto estimado"></div>
+        </div>
+
+        <div class="field">
+          <div class="q"><b>7.5</b><label for="f75">¿Algo más que deba saber?</label></div>
+          <div class="ctrl"><textarea id="f75" data-k="Comentarios finales"></textarea></div>
+        </div>
+      </section>
+
+      <!-- Acciones -->
+      <div class="actions">
+        <h2>Listo: enviame tu brief</h2>
+        <p>Al finalizar vas a ver el resumen completo de tus respuestas. Tocá <strong style="color:var(--ink)">Enviar por WhatsApp</strong> y me llega al instante con todo precargado, solo confirmás el envío. También podés mandarlo por email o descargarlo.</p>
+        <button type="button" class="btn btn-primary" id="generar">Finalizar y enviar →</button>
+        <div class="err-msg" id="errMsg"></div>
+        <p style="margin:18px 0 0;font-size:12.5px;color:var(--code)">🔒 Tus respuestas no se publican en ningún lado: solo las uso para entender tu proyecto y armarte la propuesta. Si tenés logo, fotos u otros materiales, los coordinamos por email o Drive después de enviar el brief.</p>
+      </div>
+
+    </form>
+  </div>
+
+  <footer class="site">
+    <span>Formulario de proyecto de <a href="https://www.lucascolari.com" target="_blank" rel="noopener"><strong>Lucas Scolari</strong></a> · Desarrollo web</span>
+    <a href="https://www.lucascolari.com" target="_blank" rel="noopener">Ver portfolio →</a>
+  </footer>
+</div>
+
+<!-- ===== Modal de resumen ===== -->
+<dialog id="resumen">
+  <div class="modal-head">
+    <h3>Tu brief está listo</h3>
+    <span class="toast" id="toast">Copiado ✓</span>
+    <button type="button" id="cerrar" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="modal-body">
+    <p id="autoStatus" style="font-size:13px;color:var(--accent-ink);margin:0 0 10px;display:none"></p>
+    <pre id="texto"></pre>
+  </div>
+  <div class="modal-actions">
+    <button type="button" class="btn btn-primary" id="enviarWa">Enviar por WhatsApp</button>
+    <button type="button" class="btn btn-ghost" id="enviarMail">Enviar por email</button>
+    <button type="button" class="btn btn-ghost" id="copiar">Copiar</button>
+    <button type="button" class="btn btn-ghost" id="descargar">Descargar .txt</button>
+  </div>
+</dialog>
+
+<script>
+/* =========================================================
+   CONFIGURACIÓN — Lucas Scolari
+   ========================================================= */
+const DEV_NAME     = "Lucas Scolari";
+const DEV_SITE     = "https://www.lucascolari.com";
+const DEV_EMAIL    = "hola@lucascolari.com";
+const DEV_WHATSAPP = "543624131305";     // mismo formato que usa tu web en wa.me
+
+/* OPCIONAL pero recomendado — envío 100% automático por email:
+   1. Entrá a https://web3forms.com (gratis, sin registro)
+   2. Poné tu email y te mandan una "Access Key"
+   3. Pegala acá abajo entre las comillas
+   Con esto, apenas el cliente finaliza el formulario, el brief
+   te llega solo a tu casilla, sin que él tenga que hacer nada más. */
+const WEB3FORMS_KEY = "";
+/* ========================================================= */
+
+const $  = (s, c=document) => c.querySelector(s);
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+
+$("#devName").textContent = DEV_NAME;
+
+$("#fecha").textContent = new Date().toLocaleDateString("es-AR", {day:"2-digit", month:"long", year:"numeric"});
+
+/* ---- sub-campos condicionales ---- */
+function syncSubs(){
+  $$("input[data-sub]").forEach(i => {
+    const sub = $("#" + i.dataset.sub);
+    if (sub) sub.classList.toggle("show", i.checked);
+  });
+  $("#objOtro").classList.toggle("show", $('input[name="obj"]:checked')?.value === "Otro");
+}
+$("#brief").addEventListener("change", syncSubs);
+
+/* ---- progreso ---- */
+const reqFields = $$(".field[data-req]");
+const fieldDone = f => {
+  const radios = $$('input[type=radio]', f);
+  if (radios.length) return radios.some(r => r.checked);
+  const checks = $$('input[type=checkbox]', f);
+  if (checks.length) return checks.some(c => c.checked);
+  const inp = $('input[type=text],input[type=email],input[type=tel],textarea', f);
+  return inp && inp.value.trim().length > 0;
+};
+const sectionDone = sec => $$(".field[data-req]", sec).every(fieldDone);
+
+function updateProgress(){
+  const done = reqFields.filter(fieldDone).length;
+  const pct = Math.round(done / reqFields.length * 100);
+  $("#pct").textContent = pct;
+  $("#bar").style.width = pct + "%";
+  $("#hint").textContent = `${done} de ${reqFields.length} respuestas clave`;
+  $$("#indice a").forEach(a => {
+    const sec = $("#" + a.dataset.sec);
+    a.classList.toggle("done", $$(".field[data-req]", sec).length > 0 && sectionDone(sec));
+  });
+  reqFields.forEach(f => { if (fieldDone(f)) f.classList.remove("missing"); });
+}
+$("#brief").addEventListener("input", updateProgress);
+$("#brief").addEventListener("change", updateProgress);
+updateProgress();
+
+/* ---- guardado automático del borrador ---- */
+const LS_KEY = "brief-web-borrador";
+const allInputs = () => $$("#brief input, #brief textarea");
+let saveTimer;
+
+function saveDraft(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try {
+      const data = allInputs().map(el =>
+        (el.type === "radio" || el.type === "checkbox") ? (el.checked ? 1 : 0) : el.value
+      );
+      localStorage.setItem(LS_KEY, JSON.stringify(data));
+      flashSave("Borrador guardado ✓");
+    } catch {}
+  }, 500);
+}
+
+function loadDraft(){
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    let any = false;
+    allInputs().forEach((el, i) => {
+      if (el.type === "radio" || el.type === "checkbox") { el.checked = !!data[i]; if (data[i]) any = true; }
+      else { el.value = data[i] || ""; if (data[i]) any = true; }
+    });
+    syncSubs();
+    updateProgress();
+    if (any) flashSave("Recuperamos tu borrador ✓", 4000);
+  } catch {}
+}
+
+function clearDraft(){ try { localStorage.removeItem(LS_KEY); } catch {} }
+
+function flashSave(msg, ms = 2000){
+  const s = $("#saveState");
+  s.textContent = msg;
+  clearTimeout(s._t);
+  s._t = setTimeout(() => { s.textContent = "Guardado automático activo"; }, ms);
+}
+
+$("#brief").addEventListener("input", saveDraft);
+$("#brief").addEventListener("change", saveDraft);
+loadDraft();
+
+/* ---- envío automático por email (Web3Forms, opcional) ---- */
+async function autoSend(texto){
+  if (!WEB3FORMS_KEY) return;
+  const st = $("#autoStatus");
+  st.style.display = "block";
+  st.textContent = "Enviando copia automática a " + DEV_NAME + "…";
+  try {
+    const r = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: "Brief web — " + ($("#f12").value.trim() || "nuevo proyecto"),
+        from_name: $("#f11").value.trim() || "Cliente",
+        email: $("#f13").value.trim(),
+        message: texto
+      })
+    });
+    if (r.ok){
+      st.textContent = "✓ El brief ya le llegó automáticamente a " + DEV_NAME + ". Si querés, reforzalo por WhatsApp para coordinar los próximos pasos.";
+      clearDraft();
+    } else {
+      st.style.display = "none";
+    }
+  } catch { st.style.display = "none"; }
+}
+
+/* ---- armado del resumen ---- */
+function collect(){
+  const lines = [];
+  lines.push("BRIEF DE PROYECTO WEB");
+  lines.push("Para: " + DEV_NAME);
+  lines.push("Fecha: " + new Date().toLocaleDateString("es-AR"));
+  $$("section.block").forEach(sec => {
+    const num = $(".num", sec).textContent;
+    const title = $("h2", sec).textContent.toUpperCase();
+    const rows = [];
+    $$(".field", sec).forEach(f => {
+      // grupos de opciones
+      $$(".choices", f).forEach(g => {
+        const sel = $$("input:checked", g).map(i => i.value);
+        if (sel.length) rows.push(`• ${g.dataset.k}: ${sel.join(", ")}`);
+      });
+      // inputs de texto
+      $$('input[type=text],input[type=email],input[type=tel],textarea', f).forEach(i => {
+        const v = i.value.trim();
+        if (v) rows.push(`• ${i.dataset.k}: ${v}`);
+      });
+    });
+    if (rows.length){
+      lines.push("");
+      lines.push(`${num} — ${title}`);
+      lines.push("─".repeat(34));
+      lines.push(...rows);
+    }
+  });
+  return lines.join("\n");
+}
+
+/* ---- validación + modal ---- */
+const dlg = $("#resumen");
+$("#generar").addEventListener("click", () => {
+  const missing = reqFields.filter(f => !fieldDone(f));
+  const err = $("#errMsg");
+  // validar formato de email
+  const mail = $("#f13");
+  if (mail.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())){
+    mail.closest(".field").classList.add("missing");
+    err.textContent = "El email no parece válido: revisalo antes de continuar.";
+    err.classList.add("show");
+    mail.closest(".field").scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+  if (missing.length){
+    missing.forEach(f => f.classList.add("missing"));
+    err.textContent = `Faltan ${missing.length} respuesta${missing.length>1?"s":""} obligatoria${missing.length>1?"s":""} (marcadas en rojo más arriba).`;
+    err.classList.add("show");
+    missing[0].scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+  err.classList.remove("show");
+  $("#autoStatus").style.display = "none";
+  const texto = collect();
+  $("#texto").textContent = texto;
+  dlg.showModal();
+  autoSend(texto);
+});
+$("#cerrar").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+
+/* ---- acciones del resumen ---- */
+$("#copiar").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText($("#texto").textContent);
+  } catch {
+    const r = document.createRange(); r.selectNodeContents($("#texto"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+    document.execCommand("copy"); s.removeAllRanges();
+  }
+  const t = $("#toast"); t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1800);
+});
+
+$("#descargar").addEventListener("click", () => {
+  const empresa = ($("#f12").value.trim() || "proyecto").toLowerCase().replace(/[^a-z0-9áéíóúñ]+/gi,"-");
+  const blob = new Blob([$("#texto").textContent], {type:"text/plain;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `brief-${empresa}.txt`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+$("#enviarWa").addEventListener("click", () => {
+  clearDraft();
+  window.open(`https://wa.me/${DEV_WHATSAPP}?text=${encodeURIComponent($("#texto").textContent)}`, "_blank");
+});
+
+$("#enviarMail").addEventListener("click", async () => {
+  clearDraft();
+  const empresa = $("#f12").value.trim() || "nuevo proyecto";
+  const texto = $("#texto").textContent;
+  const subject = encodeURIComponent("Brief web — " + empresa);
+  // los enlaces mailto tienen límite de longitud: si el brief es largo,
+  // lo copiamos al portapapeles y abrimos el email para que lo pegue
+  if (texto.length > 1500){
+    try { await navigator.clipboard.writeText(texto); } catch {}
+    const t = $("#toast"); t.textContent = "Brief copiado: pegalo en el email ✓"; t.classList.add("show");
+    setTimeout(() => { t.classList.remove("show"); t.textContent = "Copiado ✓"; }, 3500);
+    window.location.href = `mailto:${DEV_EMAIL}?subject=${subject}&body=${encodeURIComponent("¡Hola! Te pego el brief completo acá debajo:\n\n")}`;
+  } else {
+    window.location.href = `mailto:${DEV_EMAIL}?subject=${subject}&body=${encodeURIComponent(texto)}`;
+  }
+});
+</script>
+</body>
+</html>
