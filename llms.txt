@@ -1,0 +1,32 @@
+# Lucas Scolari — Desarrollador Web Freelance
+
+> Desarrollador web freelance basado en Resistencia, Chaco, Argentina. Creo sitios web profesionales, landing pages y tiendas online 100% a medida (sin plantillas) para emprendedores y empresas de Argentina y el exterior.
+
+## Servicios y precios
+
+- **Landing Page**: desde $150 USD. Página de aterrizaje optimizada para convertir, mobile-first.
+- **Sitio Web Completo**: desde $350 USD. Múltiples secciones, animaciones, SEO básico, formulario de contacto y WhatsApp integrado.
+- **Tienda Online / E-commerce**: desde $600 USD. Catálogo de productos, carrito y Mercado Pago integrado.
+- **Planes mensuales de mantenimiento**: Mantenimiento, Crecimiento ($70 USD/mes) y Pro ($130 USD/mes).
+- **Auditoría gratuita**: análisis sin costo de sitios web existentes (velocidad, diseño, SEO y conversión).
+
+## Garantías y condiciones
+
+- Respuesta en menos de 24 horas.
+- 30 días de soporte post-entrega incluidos en todos los proyectos.
+- Garantía de devolución: si en los primeros 7 días el cliente no está conforme con la dirección del diseño, se devuelve el 100% del anticipo.
+- Todo el código es a medida, no se usan plantillas.
+
+## Proyectos entregados
+
+- [Neaboats](https://neaboats.com): sitio web para broker náutico. Entregado antes del plazo pactado.
+- VNS Studio Barbería: sitio con sistema de turnos online que automatizó la coordinación de reservas.
+- C-Z Motos: sitio web para importadora de motos.
+
+## Contacto
+
+- Web: https://www.lucascolari.com
+- Email: hola@lucascolari.com
+- WhatsApp: +54 9 3624 13-1305
+- Brief para nuevos clientes: https://lucascolari.com/brief.html
+- Ubicación: Resistencia, Chaco, Argentina (atiende todo el país y el exterior de forma remota)
