@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#08090A"/>
+<meta name="color-scheme" content="dark"/>
 <title>Lucas Scolari | Desarrollador Web Freelance Argentina | Sitios, Landing Pages y Tiendas Online</title>
 <meta name="description" content="Desarrollador web freelance en Resistencia, Chaco (Argentina). Creo sitios profesionales, landing pages y tiendas online a medida. Rápidos, modernos y con resultados reales. Desde $150 USD. Respuesta en menos de 24hs."/>
 <meta property="og:title" content="Lucas Scolari | Desarrollador Web Freelance Argentina"/>
@@ -290,8 +292,8 @@
  ]
 }
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SX8K42FHD"></script>
 <script>
+/* Google Analytics — carga diferida: el script pesado se baja recién cuando el navegador está libre, así no frena el primer pintado. Los eventos se encolan en dataLayer y se procesan al cargar. */
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
@@ -301,29 +303,56 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(cf){cf.addEventListener('submit',()=>{gtag('event','form_submit',{event_category:'contacto',event_label:'formulario_portfolio'});})}
   document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{a.addEventListener('click',()=>{gtag('event','whatsapp_click',{event_category:'contacto',event_label:a.href});});});
 });
+(function(){
+  function loadGA(){
+    if(document.getElementById('ga-script'))return;
+    var s=document.createElement('script');
+    s.async=true;s.id='ga-script';
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-8SX8K42FHD';
+    document.head.appendChild(s);
+  }
+  if('requestIdleCallback' in window){requestIdleCallback(loadGA,{timeout:5000});}
+  else{window.addEventListener('load',function(){setTimeout(loadGA,1500);});}
+})();
 </script>
 <script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1002935622131888');
-fbq('track','PageView');
+/* Meta Pixel — carga diferida: se inicializa cuando el navegador está libre para no competir con el render. */
+(function(){
+  function loadPixel(){
+    if(window.fbq)return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','1002935622131888');
+    fbq('track','PageView');
+  }
+  if('requestIdleCallback' in window){requestIdleCallback(loadPixel,{timeout:5000});}
+  else{window.addEventListener('load',function(){setTimeout(loadPixel,1500);});}
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1002935622131888&ev=PageView&noscript=1"/></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="dns-prefetch" href="https://connect.facebook.net"/>
+<!-- Fuentes: carga no bloqueante (media=print + onload) con respaldo en <noscript> -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'"/>
+<!-- Iconos Tabler: carga no bloqueante para acelerar el primer pintado -->
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" media="print" onload="this.media='all'"/>
+<noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+</noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--g:#22C47A;--g2:#35E08F;--g3:#1AA066;--gdim:rgba(34,196,122,0.1);--gborder:rgba(34,196,122,0.22);--gglow:rgba(34,196,122,0.08);--bg:#08090A;--bg2:#0D0F10;--bg3:#131618;--bg4:#1A1E21;--border:rgba(255,255,255,0.055);--border2:rgba(255,255,255,0.1);--text:#F2F4F3;--text2:rgba(242,244,243,0.5);--text3:rgba(242,244,243,0.25);--r:16px;--rsm:10px;--font-display:'Syne',sans-serif;--font-body:'Inter',sans-serif;}
+:root{--g:#22C47A;--g2:#35E08F;--g3:#1AA066;--gdim:rgba(34,196,122,0.1);--gborder:rgba(34,196,122,0.22);--gglow:rgba(34,196,122,0.08);--bg:#08090A;--bg2:#0D0F10;--bg3:#131618;--bg4:#1A1E21;--border:rgba(255,255,255,0.055);--border2:rgba(255,255,255,0.1);--text:#F2F4F3;--text2:rgba(242,244,243,0.64);--text3:rgba(242,244,243,0.42);--r:16px;--rsm:10px;--font-display:'Syne',sans-serif;--font-body:'Inter',sans-serif;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:80px}
 body{font-family:var(--font-body);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
 #cur{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--g);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,width 0.2s,height 0.2s}
 #cur-ring{position:fixed;width:32px;height:32px;border-radius:50%;border:1px solid rgba(34,196,122,0.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
@@ -456,7 +485,7 @@ section{padding:5rem 3rem}
 .sc:hover::before{transform:scaleY(1)}
 .sc.featured{grid-row:1/3;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,#0e1f14 0%,#0a160e 50%,#080e09 100%);border-color:var(--gborder)}
 .sc.featured::before{display:none}
-.sc.featured::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(34,196,122,0.12) 0%,transparent 70%);pointer-events:none}
+.sc.featured::after{content:'';position:absolute;inset:0;border-radius:var(--r);padding:1px;background:conic-gradient(from var(--hb-angle),transparent 0deg,rgba(34,196,122,0.5) 55deg,rgba(53,224,143,0.8) 80deg,rgba(34,196,122,0) 130deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:hbspin 6s linear infinite;pointer-events:none;z-index:1}
 .sc-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--g);background:var(--gdim);border:0.5px solid var(--gborder);padding:3px 10px;border-radius:100px;margin-bottom:1.5rem;letter-spacing:0.06em;text-transform:uppercase}
 .sc-icon{width:44px;height:44px;border-radius:12px;background:var(--gdim);border:0.5px solid var(--gborder);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--g);margin-bottom:1.25rem}
 .sc.featured .sc-icon{width:52px;height:52px;font-size:24px}
@@ -501,7 +530,7 @@ section{padding:5rem 3rem}
 .proc-num{font-family:var(--font-display);font-size:4rem;font-weight:800;color:var(--g);opacity:0.12;line-height:1;margin-bottom:1.2rem;letter-spacing:-0.05em}
 .proc-item h3{font-size:15px;font-weight:600;color:var(--text);margin-bottom:0.5rem;font-family:var(--font-display);letter-spacing:-0.01em}
 .proc-item p{font-size:13.5px;color:var(--text2);line-height:1.72;font-weight:300}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2.5rem}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:2.5rem}
 .testi-card{background:var(--bg3);border:0.5px solid var(--border2);border-radius:var(--r);padding:2rem;transition:border-color 0.2s,transform 0.25s;display:flex;flex-direction:column;gap:1rem}
 .testi-card:hover{border-color:var(--gborder);transform:translateY(-4px)}
 .testi-stars{color:#F0B429;font-size:14px;letter-spacing:2px}
@@ -734,12 +763,64 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
 }
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+/* ════════ PULIDO VISUAL ════════ */
+/* Textura de grano sutil sobre todo el sitio: agrega profundidad y sensación premium sin distraer */
+body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* Degradado sutil en los acentos verdes de los títulos */
+.sec-title em{color:var(--g);background:linear-gradient(120deg,var(--g2),var(--g));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+/* Brillo que recorre los botones principales al pasar el mouse */
+.btn-primary,.nav-cta,.sc-cta,.form-submit,.plan-cta:not(.outline){position:relative;overflow:hidden}
+.btn-primary::after,.nav-cta::after,.sc-cta::after,.form-submit::after,.plan-cta:not(.outline)::after{content:'';position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,0.35),transparent);transform:skewX(-18deg);transition:left 0.6s ease;pointer-events:none}
+.btn-primary:hover::after,.nav-cta:hover::after,.sc-cta:hover::after,.form-submit:hover::after,.plan-cta:not(.outline):hover::after{left:140%}
+/* Las capturas de proyectos hacen un paneo suave al pasar el mouse: la web "cobra vida" */
+.proj-frame img{transition:object-position 4.5s ease,transform 0.4s ease}
+.project-card:hover .proj-frame img{object-position:center bottom!important}
+/* ── Profundidad premium: sombras suaves que hacen "flotar" las tarjetas ── */
+.sc,.project-card,.plan-card,.guarantee-item,.proc-item,.testi-card,.hero-card{box-shadow:0 1px 2px rgba(0,0,0,0.25),0 10px 30px rgba(0,0,0,0.20)}
+.sc,.plan-card,.guarantee-item,.proc-item,.testi-card{transition-property:border-color,background,transform,box-shadow;transition-duration:0.3s;transition-timing-function:ease}
+.sc:hover,.plan-card:hover,.guarantee-item:hover,.proc-item:hover,.testi-card:hover{box-shadow:0 2px 4px rgba(0,0,0,0.3),0 24px 56px rgba(0,0,0,0.42)}
+/* Insignias de iconos con degradado + glow (look premium, consistente en todo el sitio) */
+.sc-icon,.gi-icon,.ahl-icon,.co-icon.mail,.testi-av{background:radial-gradient(120% 120% at 30% 20%,rgba(34,196,122,0.20),rgba(34,196,122,0.05));box-shadow:inset 0 1px 0 rgba(255,255,255,0.06),0 4px 16px rgba(34,196,122,0.10)}
+.project-card:hover{box-shadow:0 24px 70px rgba(0,0,0,0.55),0 0 0 1px var(--gborder),0 0 40px rgba(34,196,122,0.08)}
+nav.scrolled{box-shadow:0 6px 34px rgba(0,0,0,0.45)}
+.hero .btn-primary{box-shadow:0 8px 28px rgba(34,196,122,0.22)}
+/* Degradado sutil en los CTAs verdes: más dimensión y sensación premium */
+.btn-primary,.nav-cta,.sc-cta,.form-submit,.plan-cta:not(.outline){background-image:linear-gradient(135deg,var(--g2),var(--g) 58%,var(--g3))}
+/* ── Hero: aurora animada + tarjeta flotante (efecto "wow") ── */
+.hero::before{content:'';position:absolute;top:-30%;left:50%;width:1100px;max-width:130%;height:760px;transform:translateX(-50%);background:radial-gradient(40% 50% at 30% 40%,rgba(34,196,122,0.12),transparent 70%),radial-gradient(45% 55% at 70% 55%,rgba(53,224,143,0.10),transparent 70%),radial-gradient(60% 60% at 50% 50%,rgba(34,196,122,0.05),transparent 75%);filter:blur(8px);pointer-events:none;z-index:0;animation:auroraDrift 14s ease-in-out infinite}
+@keyframes auroraDrift{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-47%) translateY(20px) scale(1.07)}}
+.hero-mesh::before{width:760px;height:760px;background:radial-gradient(circle,rgba(34,196,122,0.11) 0%,transparent 70%)}
+.hero-mesh::after{width:560px;height:560px;background:radial-gradient(circle,rgba(53,224,143,0.08) 0%,transparent 70%)}
+.hero-card{animation:fadeUp 0.7s 0.35s ease both,floatCard 7s ease-in-out 1.2s infinite}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.ticker-section{-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+/* Borde que se ilumina y gira suavemente en la tarjeta del hero (detalle premium) */
+@property --hb-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+.hero-card::after{content:'';position:absolute;inset:0;border-radius:24px;padding:1px;background:conic-gradient(from var(--hb-angle),transparent 0deg,rgba(34,196,122,0.55) 55deg,rgba(53,224,143,0.85) 80deg,rgba(34,196,122,0.0) 130deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:hbspin 5.5s linear infinite;pointer-events:none;z-index:3}
+@keyframes hbspin{to{--hb-angle:360deg}}
+.plan-card.popular::after{content:'';position:absolute;inset:0;border-radius:var(--r);padding:1px;background:conic-gradient(from var(--hb-angle),transparent 0deg,rgba(34,196,122,0.5) 55deg,rgba(53,224,143,0.8) 80deg,rgba(34,196,122,0) 130deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:hbspin 6s linear infinite;pointer-events:none;z-index:1}
+/* ── ACCESIBILIDAD: foco visible para quien navega con teclado ── */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,.faq-q:focus-visible{outline:2px solid var(--g);outline-offset:3px;border-radius:6px}
+.skip-link{position:absolute;left:50%;top:8px;transform:translateX(-50%) translateY(-160%);z-index:500;background:var(--g);color:var(--bg);padding:10px 18px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;transition:transform 0.2s}
+.skip-link:focus{transform:translateX(-50%) translateY(0)}
+/* ── Pantallas táctiles: cursor normal, sin cursor personalizado ── */
+@media(pointer:coarse){body{cursor:auto}#cur,#cur-ring{display:none}}
+/* ── Respeto a quien prefiere menos movimiento (accesibilidad / mareo) ── */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important}
+  html{scroll-behavior:auto!important}
+  body{cursor:auto!important}
+  #cur,#cur-ring{display:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .ticker-track,.typing-cursor,.hero-mesh::before,.hero-mesh::after,.scroll-line,.hero-tag-dot,.hc-avail::before,.avail-badge::before{animation:none!important}
+}
 </style>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-ring"></div>
+<a href="#contenido" class="skip-link">Saltar al contenido</a>
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
 <div id="pbar"></div>
 
 <a href="https://wa.me/543624131305?text=Hola%20Lucas%2C%20quiero%20hablar%20sobre%20un%20proyecto%20web" target="_blank" class="wa-float"><i class="ti ti-brand-whatsapp"></i></a>
@@ -756,7 +837,7 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
       <a href="#contacto">Contacto</a>
     </div>
     <a href="/brief.html" class="nav-cta">Cotizá tu web gratis →</a>
-    <button class="hamburger" onclick="toggleMenu()"><i class="ti ti-menu-2"></i></button>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
@@ -769,8 +850,9 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
   <a href="https://wa.me/543624131305" target="_blank" style="color:#25d366">WhatsApp →</a>
 </div>
 
+<main id="contenido">
 <section class="hero">
-  <div class="hero-mesh"></div>
+  <div class="hero-mesh" aria-hidden="true"></div>
   <div class="hero-dots"></div>
   <div class="hero-inner">
     <div class="hero-bignumber">WEB</div>
@@ -926,7 +1008,9 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
             <div class="browser-url">neaboats.com</div>
           </div>
           <div class="proj-frame">
+            <a href="https://neaboats.com" target="_blank" rel="noopener" aria-label="Ver Neaboats en vivo" style="display:block;height:100%;text-decoration:none">
             <img src="proyecto-neaboats.webp" width="1200" height="569" loading="lazy" decoding="async" alt="Neaboats — Sitio web de broker náutico desarrollado por Lucas Scolari, freelance web Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;">
+            </a>
           </div>
         </div>
       </div>
@@ -956,7 +1040,9 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
             <div class="browser-url">vns-studio.vercel.app</div>
           </div>
           <div class="proj-frame">
+            <a href="https://vns-studio.vercel.app" target="_blank" rel="noopener" aria-label="Ver VNS Studio en vivo" style="display:block;height:100%;text-decoration:none">
             <img src="proyecto-vns-studio.webp" width="1200" height="581" loading="lazy" decoding="async" alt="VNS Studio — Sitio web de barbería con sistema de turnos online, desarrollado por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;">
+            </a>
           </div>
         </div>
       </div>
@@ -987,7 +1073,9 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
             <div class="browser-url">c-zmotos.vercel.app</div>
           </div>
           <div class="proj-frame">
+            <a href="https://c-zmotos.vercel.app" target="_blank" rel="noopener" aria-label="Ver CZ Motos en vivo" style="display:block;height:100%;text-decoration:none">
             <img src="proyecto-czmotos.webp" width="1200" height="549" loading="lazy" decoding="async" alt="CZ Motos — Sitio web de importadora de motos Miami-Cuba, desarrollado por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:left top;display:block;">
+            </a>
           </div>
         </div>
       </div>
@@ -1128,11 +1216,11 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
     <div class="sec-num">FAQ</div>
     <h2 class="sec-title">Todo lo que<br>querés <em>saber</em></h2>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tarda en estar lista mi web? <i class="ti ti-plus"></i></button><div class="faq-a">Depende de la complejidad. Una landing puede estar en 5-7 días. Un sitio completo lleva entre 2 y 4 semanas. Te doy una fecha exacta antes de empezar.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Necesito saber algo de tecnología? <i class="ti ti-plus"></i></button><div class="faq-a">Para nada. Me encargo de todo. Solo necesito que me cuentes tu negocio y objetivos.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo son los pagos? <i class="ti ti-plus"></i></button><div class="faq-a">50% al inicio y 50% a la entrega. Acepto transferencia bancaria, Mercado Pago y efectivo.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si quiero cambios después? <i class="ti ti-plus"></i></button><div class="faq-a">Los primeros 30 días son gratuitos para ajustes menores. Para cambios mayores tenemos planes mensuales accesibles.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Me enseñás a usar el sitio? <i class="ti ti-plus"></i></button><div class="faq-a">Sí. Al entregar hago una videollamada o grabo un tutorial para que puedas manejarte solo.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Cuánto tarda en estar lista mi web? <i class="ti ti-plus"></i></button><div class="faq-a">Depende de la complejidad. Una landing puede estar en 5-7 días. Un sitio completo lleva entre 2 y 4 semanas. Te doy una fecha exacta antes de empezar.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Necesito saber algo de tecnología? <i class="ti ti-plus"></i></button><div class="faq-a">Para nada. Me encargo de todo. Solo necesito que me cuentes tu negocio y objetivos.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Cómo son los pagos? <i class="ti ti-plus"></i></button><div class="faq-a">50% al inicio y 50% a la entrega. Acepto transferencia bancaria, Mercado Pago y efectivo.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Qué pasa si quiero cambios después? <i class="ti ti-plus"></i></button><div class="faq-a">Los primeros 30 días son gratuitos para ajustes menores. Para cambios mayores tenemos planes mensuales accesibles.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Me enseñás a usar el sitio? <i class="ti ti-plus"></i></button><div class="faq-a">Sí. Al entregar hago una videollamada o grabo un tutorial para que puedas manejarte solo.</div></div>
     </div>
   </div>
 </section>
@@ -1199,6 +1287,7 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="footer-inner">
@@ -1213,10 +1302,18 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
   </div>
 </footer>
 <script>
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer=window.matchMedia('(pointer: fine)').matches;
 const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function animRing(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+if(cur&&ring&&finePointer&&!reduceMotion){
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function animRing(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+}else{
+  if(cur)cur.style.display='none';
+  if(ring)ring.style.display='none';
+  document.body.style.cursor='auto';
+}
 window.addEventListener('scroll',()=>{
   document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
   document.getElementById('pbar').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
@@ -1224,11 +1321,21 @@ window.addEventListener('scroll',()=>{
   document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id});
   document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
 });
-function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+function toggleMenu(){
+  const mn=document.getElementById('mobileNav');
+  const open=mn.classList.toggle('open');
+  const ham=document.querySelector('.hamburger');
+  if(ham){ham.setAttribute('aria-expanded',open?'true':'false');ham.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');}
+}
+function closeMenu(){
+  document.getElementById('mobileNav').classList.remove('open');
+  const ham=document.querySelector('.hamburger');
+  if(ham){ham.setAttribute('aria-expanded','false');ham.setAttribute('aria-label','Abrir menú');}
+}
 function toggleFaq(btn){
   const item=btn.closest('.faq-item'),open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!open)item.classList.add('open');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');const b=i.querySelector('.faq-q');if(b)b.setAttribute('aria-expanded','false');});
+  if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
 }
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
@@ -1238,8 +1345,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(!target)return;
     e.preventDefault();
     const top=target.getBoundingClientRect().top+window.scrollY-80;
-    window.scrollTo({top,behavior:'smooth'});
-    document.getElementById('mobileNav').classList.remove('open');
+    window.scrollTo({top,behavior:reduceMotion?'auto':'smooth'});
+    closeMenu();
   });
 });
 function copyEmail(e){
@@ -1271,7 +1378,7 @@ function type(){
   else{tel.textContent=ph.substring(0,ci-1);ci--;if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);return}}
   setTimeout(type,del?40:70);
 }
-setTimeout(type,800);
+if(tel){if(reduceMotion){tel.textContent=phrases[0];}else{setTimeout(type,800);}}
 
 // Counters
 function animCounter(el,target,dur){
@@ -1280,7 +1387,7 @@ function animCounter(el,target,dur){
 }
 const ctargets=[{id:'c1',val:100},{id:'c2',val:24},{id:'c3',val:30},{id:'c4',val:7}];
 const cobs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const t=ctargets.find(c=>c.id===x.target.id);if(t)animCounter(x.target,t.val,1200);cobs.unobserve(x.target)}})},{threshold:0.5});
-ctargets.forEach(t=>{const el=document.getElementById(t.id);if(el)cobs.observe(el)});
+ctargets.forEach(t=>{const el=document.getElementById(t.id);if(el){if(reduceMotion){el.childNodes[0].textContent=t.val;}else{cobs.observe(el);}}});
 
 // Scroll reveal
 const robs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');robs.unobserve(x.target)}})},{threshold:0.08});
