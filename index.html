@@ -1270,9 +1270,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
       </div>
       <div class="reveal">
         <form class="contact-form" id="contactForm">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"/>
           <div class="form-row">
-            <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required oninput="validateField(this,'text')"/><span class="field-msg" id="msg-nombre"></span></div>
-            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required oninput="validateField(this,'email')"/><span class="field-msg" id="msg-email"></span></div>
+            <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" oninput="validateField(this,'text')"/><span class="field-msg" id="msg-nombre"></span></div>
+            <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email" inputmode="email" oninput="validateField(this,'email')"/><span class="field-msg" id="msg-email"></span></div>
           </div>
           <div class="form-row">
             <div class="form-group"><label for="servicio">¿Qué necesitás?</label><select id="servicio" name="servicio" onchange="validateField(this,'select')"><option value="">Seleccioná un servicio...</option><option>Sitio web completo</option><option>Landing page</option><option>Tienda online</option><option>Auditoría gratis de mi web actual</option><option>Otro / No sé aún</option></select></div>

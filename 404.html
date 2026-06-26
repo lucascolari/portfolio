@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#08090A"/>
+<meta name="robots" content="noindex,follow"/>
+<title>Página no encontrada (404) — Lucas Scolari</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2322C47A'/><text x='16' y='23' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='20' fill='%23080A09'>L</text></svg>"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--g:#22C47A;--g2:#35E08F;--bg:#08090A;--text:#F2F4F3;--text2:rgba(242,244,243,0.5);--border:rgba(255,255,255,0.1)}
+html,body{height:100%}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;overflow:hidden;position:relative}
+.glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(34,196,122,0.10) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:520px}
+.code{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(6rem,22vw,11rem);line-height:1;letter-spacing:-0.04em;background:linear-gradient(120deg,var(--g2),var(--g));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h1{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.4rem,4vw,2rem);letter-spacing:-0.02em;margin:0.5rem 0 0.75rem}
+p{color:var(--text2);font-weight:300;line-height:1.7;font-size:15px;margin-bottom:2rem}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:13px 24px;font-size:14px;font-weight:600;text-decoration:none;transition:transform 0.15s,box-shadow 0.2s,background 0.2s,border-color 0.2s}
+.btn-primary{background:var(--g);color:var(--bg)}
+.btn-primary:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 10px 32px rgba(34,196,122,0.35)}
+.btn-outline{background:transparent;color:var(--text2);border:1px solid var(--border)}
+.btn-outline:hover{color:var(--g);border-color:rgba(34,196,122,0.4);transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<div class="wrap">
+  <div class="code">404</div>
+  <h1>Esta página se nos escapó</h1>
+  <p>El link que buscás no existe o se movió. Pero tranquilo: tu próxima web sí la encontramos juntos.</p>
+  <div class="actions">
+    <a href="/" class="btn btn-primary">← Volver al inicio</a>
+    <a href="https://wa.me/543624131305?text=Hola%20Lucas%2C%20quiero%20hablar%20sobre%20un%20proyecto%20web" target="_blank" rel="noopener" class="btn btn-outline">Escribime por WhatsApp</a>
+  </div>
+</div>
+</body>
+</html>
