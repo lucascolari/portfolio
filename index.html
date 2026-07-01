@@ -294,6 +294,19 @@
  ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Proyectos y trabajos web de Lucas Scolari",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "item": {"@type": "WebSite", "name": "Neaboats", "url": "https://neaboats.com", "image": "https://lucascolari.com/proyecto-neaboats-new.png", "description": "Plataforma de compraventa de embarcaciones en el NEA con catálogo, filtros avanzados y contacto por WhatsApp."}},
+    {"@type": "ListItem", "position": 2, "item": {"@type": "WebSite", "name": "VNS Studio", "url": "https://vns-studio.vercel.app", "image": "https://lucascolari.com/proyecto-vns-studio.webp", "description": "Sitio de barbería con sistema de turnos online en tiempo real y panel de administración."}},
+    {"@type": "ListItem", "position": 3, "item": {"@type": "WebSite", "name": "CZ Motos", "url": "https://c-zmotos.vercel.app", "image": "https://lucascolari.com/proyecto-czmotos.webp", "description": "Sitio de importadora de motos y triciclos de Miami a Cuba con financiamiento y catálogo."}},
+    {"@type": "ListItem", "position": 4, "item": {"@type": "WebSite", "name": "Tu Team Uniforms", "url": "https://keen-jelly-6c6201.netlify.app/", "image": "https://lucascolari.com/proyecto-team-uniforms.png", "description": "Landing premium para empresa de producción e importación textil B2B en Buenos Aires."}}
+  ]
+}
+</script>
 <script>
 /* Google Analytics — carga diferida: el script pesado se baja recién cuando el navegador está libre, así no frena el primer pintado. Los eventos se encolan en dataLayer y se procesan al cargar. */
 window.dataLayer=window.dataLayer||[];
@@ -773,6 +786,25 @@ footer{padding:2.5rem 3rem;border-top:0.5px solid var(--border)}
 }
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
+/* ════════ CARRUSEL DE PORTFOLIO ════════ */
+.carousel{position:relative;margin-top:2.5rem}
+.carousel-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:8px}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-track > .project-card{flex:0 0 100%;min-width:0;scroll-snap-align:center;margin-top:0}
+.carousel-track > .project-card:hover{transform:none}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;background:rgba(13,15,16,0.7);backdrop-filter:blur(10px);border:0.5px solid var(--border2);color:var(--text);display:flex;align-items:center;justify-content:center;font-size:20px;cursor:none;transition:background 0.2s,color 0.2s,border-color 0.2s,transform 0.2s,opacity 0.2s}
+.carousel-btn:hover{background:var(--g);color:var(--bg);border-color:var(--g);transform:translateY(-50%) scale(1.06)}
+.carousel-prev{left:-8px}
+.carousel-next{right:-8px}
+.carousel-dots{display:flex;justify-content:center;gap:9px;margin-top:1.75rem}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--border2);border:none;padding:0;cursor:none;transition:background 0.25s,width 0.25s}
+.carousel-dot.active{background:var(--g);width:26px;border-radius:5px}
+.carousel-dot:hover{background:var(--g3)}
+@media(max-width:900px){
+  .carousel-btn{width:40px;height:40px;font-size:18px}
+  .carousel-prev{left:0}
+  .carousel-next{right:0}
+}
 /* ════════ PULIDO VISUAL ════════ */
 /* Textura de grano sutil sobre todo el sitio: agrega profundidad y sensación premium sin distraer */
 body::after{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -1004,140 +1036,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   </div>
 </div>
 
-<section id="portfolio" class="portfolio-section" aria-label="Portfolio de proyectos web">
-  <div class="inner">
-    <div class="sec-num">Portfolio</div>
-    <h2 class="sec-title">Proyectos reales,<br><em>resultados reales</em></h2>
-    <p class="sec-sub">Cada sitio tiene un objetivo claro: hacer crecer el negocio del cliente.</p>
-
-    <div class="project-card reveal">
-      <div class="proj-preview">
-        <div class="proj-preview-inner">
-          <div class="browser-chrome">
-            <div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div>
-            <div class="browser-url">Tu Team Uniforms</div>
-          </div>
-          <div class="proj-frame">
-            <img src="proyecto-team-uniforms.png" width="1280" height="800" loading="lazy" decoding="async" alt="Tu Team Uniforms — Landing premium para empresa textil B2B de Buenos Aires, desarrollada por Lucas Scolari, desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;">
-          </div>
-        </div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-eyebrow">Proyecto 01 — Textil para marcas</div>
-        <h3>Tu Team Uniforms</h3>
-        <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
-        <p>Landing premium para una empresa de desarrollo, producción e importación textil para marcas, en Buenos Aires. Scroll narrativo, animaciones y un recorrido pensado para convertir visitas en consultas y reuniones.</p>
-        <div class="proj-feats">
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Scroll narrativo</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Animaciones</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Captación de leads</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://keen-jelly-6c6201.netlify.app/" target="_blank" rel="noopener" class="proj-link" title="Ver sitio web Tu Team Uniforms en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="proj-preview">
-        <div class="proj-preview-inner">
-          <div class="browser-chrome">
-            <div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div>
-            <div class="browser-url">neaboats.com</div>
-          </div>
-          <div class="proj-frame">
-            <a href="https://neaboats.com" target="_blank" rel="noopener" aria-label="Ver Neaboats en vivo" style="display:block;height:100%;text-decoration:none">
-            <img src="proyecto-neaboats.webp" width="1200" height="569" loading="lazy" decoding="async" alt="Neaboats — Sitio web de broker náutico desarrollado por Lucas Scolari, freelance web Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-eyebrow">Proyecto 02 — Broker náutico</div>
-        <h3>Neaboats</h3>
-        <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
-        <p>Plataforma para compraventa de embarcaciones en el NEA. Catálogo con filtros avanzados, fichas de detalle, formulario para vendedores y contacto por WhatsApp.</p>
-        <div class="proj-feats">
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Filtros avanzados</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Modal de detalle</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> WhatsApp</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://neaboats.com" target="_blank" class="proj-link" title="Ver sitio web Neaboats en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a>
-          <a href="https://github.com/lucascolari" target="_blank" class="proj-github"><i class="ti ti-brand-github"></i> Ver código</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="proj-preview">
-        <div class="proj-preview-inner">
-          <div class="browser-chrome">
-            <div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div>
-            <div class="browser-url">vns-studio.vercel.app</div>
-          </div>
-          <div class="proj-frame">
-            <a href="https://vns-studio.vercel.app" target="_blank" rel="noopener" aria-label="Ver VNS Studio en vivo" style="display:block;height:100%;text-decoration:none">
-            <img src="proyecto-vns-studio.webp" width="1200" height="581" loading="lazy" decoding="async" alt="VNS Studio — Sitio web de barbería con sistema de turnos online, desarrollado por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-eyebrow">Proyecto 03 — Barbería</div>
-        <h3>VNS Studio</h3>
-        <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
-        <p>Sitio web completo para barbería en Resistencia, Chaco. Sistema de turnos online con calendario interactivo, disponibilidad en tiempo real por barbero y panel de administración privado.</p>
-        <div class="proj-feats">
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Sistema de turnos</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Panel admin</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Firebase realtime</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://vns-studio.vercel.app" target="_blank" class="proj-link" title="Ver sitio web VNS Studio en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a>
-          <a href="https://github.com/lucascolari/vns-studio" target="_blank" class="proj-github"><i class="ti ti-brand-github"></i> Ver código</a>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="project-card reveal">
-      <div class="proj-preview">
-        <div class="proj-preview-inner">
-          <div class="browser-chrome">
-            <div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div>
-            <div class="browser-url">c-zmotos.vercel.app</div>
-          </div>
-          <div class="proj-frame">
-            <a href="https://c-zmotos.vercel.app" target="_blank" rel="noopener" aria-label="Ver CZ Motos en vivo" style="display:block;height:100%;text-decoration:none">
-            <img src="proyecto-czmotos.webp" width="1200" height="549" loading="lazy" decoding="async" alt="CZ Motos — Sitio web de importadora de motos Miami-Cuba, desarrollado por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:left top;display:block;">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-eyebrow">Proyecto 04 — Importadora</div>
-        <h3>CZ Motos</h3>
-        <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
-        <p>Sitio web para importadora de motos y triciclos desde Miami a Cuba. Catálogo de productos, sección de financiamiento, FAQ y contacto directo por WhatsApp. 100% responsive.</p>
-        <div class="proj-feats">
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Catálogo de motos</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Financiamiento</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> WhatsApp</span>
-          <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
-        </div>
-        <div class="proj-links">
-          <a href="https://c-zmotos.vercel.app" target="_blank" class="proj-link" title="Ver sitio web CZ Motos en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <section id="proceso">
   <div class="inner">
     <div class="sec-num">Cómo trabajo</div>
@@ -1274,6 +1172,121 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
       </div>
       <a href="https://wa.me/543624131305?text=Hola%20Lucas%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20web.%20El%20link%20es%3A%20" target="_blank" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','click_whatsapp',{event_category:'contacto',event_label:'auditoria_gratis'})" style="flex-shrink:0"><i class="ti ti-search"></i> Pedir mi auditoría gratis</a>
     </div>
+  </div>
+</section>
+
+<section id="portfolio" class="portfolio-section" aria-label="Portfolio de proyectos web">
+  <div class="inner">
+    <div class="sec-num">Portfolio</div>
+    <h2 class="sec-title">Proyectos reales,<br><em>resultados reales</em></h2>
+    <p class="sec-sub">Cada sitio con un objetivo claro: hacer crecer el negocio del cliente. Deslizá para ver más.</p>
+    <div class="carousel">
+      <button class="carousel-btn carousel-prev" id="projPrev" type="button" aria-label="Proyecto anterior"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+      <div class="carousel-track" id="projTrack">
+
+        <div class="project-card reveal">
+          <div class="proj-preview"><div class="proj-preview-inner">
+            <div class="browser-chrome"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">neaboats.com</div></div>
+            <div class="proj-frame"><img src="proyecto-neaboats-new.png" width="1280" height="800" loading="lazy" decoding="async" alt="Neaboats — sitio web de broker náutico en el NEA, desarrollado por Lucas Scolari, desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;"></div>
+          </div></div>
+          <div class="proj-info">
+            <div class="proj-eyebrow">Broker náutico · NEA</div>
+            <h3>Neaboats</h3>
+            <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
+            <p>Plataforma para compraventa de embarcaciones en el NEA. Catálogo con filtros avanzados, fichas de detalle, formulario para vendedores y contacto directo por WhatsApp.</p>
+            <div class="proj-feats">
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Filtros avanzados</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Fichas de detalle</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> WhatsApp</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
+            </div>
+            <div class="proj-links"><a href="https://neaboats.com" target="_blank" rel="noopener" class="proj-link" title="Ver Neaboats en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="proj-preview"><div class="proj-preview-inner">
+            <div class="browser-chrome"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">vns-studio.vercel.app</div></div>
+            <div class="proj-frame"><img src="proyecto-vns-studio.webp" width="1200" height="581" loading="lazy" decoding="async" alt="VNS Studio — sitio web de barbería con sistema de turnos online, desarrollado por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;"></div>
+          </div></div>
+          <div class="proj-info">
+            <div class="proj-eyebrow">Barbería · Resistencia</div>
+            <h3>VNS Studio</h3>
+            <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
+            <p>Sitio web completo para barbería en Resistencia, Chaco. Sistema de turnos online con calendario interactivo, disponibilidad en tiempo real por barbero y panel de administración privado.</p>
+            <div class="proj-feats">
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Sistema de turnos</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Panel admin</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Firebase realtime</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
+            </div>
+            <div class="proj-links"><a href="https://vns-studio.vercel.app" target="_blank" rel="noopener" class="proj-link" title="Ver VNS Studio en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="proj-preview"><div class="proj-preview-inner">
+            <div class="browser-chrome"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">c-zmotos.vercel.app</div></div>
+            <div class="proj-frame"><img src="proyecto-czmotos.webp" width="1200" height="549" loading="lazy" decoding="async" alt="CZ Motos — sitio web de importadora de motos Miami-Cuba, desarrollado por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:left top;display:block;"></div>
+          </div></div>
+          <div class="proj-info">
+            <div class="proj-eyebrow">Importadora · Miami–Cuba</div>
+            <h3>CZ Motos</h3>
+            <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
+            <p>Sitio web para importadora de motos y triciclos desde Miami a Cuba. Catálogo de productos, sección de financiamiento, FAQ y contacto directo por WhatsApp.</p>
+            <div class="proj-feats">
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Catálogo de motos</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Financiamiento</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> WhatsApp</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
+            </div>
+            <div class="proj-links"><a href="https://c-zmotos.vercel.app" target="_blank" rel="noopener" class="proj-link" title="Ver CZ Motos en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="proj-preview"><div class="proj-preview-inner">
+            <div class="browser-chrome"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">Estudio jurídico · demo</div></div>
+            <div class="proj-frame"><img src="proyecto-demo-abogados.png" width="1280" height="800" loading="lazy" decoding="async" alt="Demo de sitio web para estudio jurídico con asistente de consultas, diseñada por Lucas Scolari desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;"></div>
+          </div></div>
+          <div class="proj-info">
+            <div class="proj-eyebrow">Demo · Estudio jurídico</div>
+            <h3>Estudio Jurídico Demo</h3>
+            <div class="proj-verified"><i class="ti ti-sparkles" style="font-size:12px"></i> Demo interactiva</div>
+            <p>Demo de venta para estudios jurídicos: landing sobria en azul marino y dorado, con un asistente conversacional que orienta consultas y agenda 24/7. Pensada para transmitir confianza y autoridad.</p>
+            <div class="proj-feats">
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Asistente 24/7</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Agenda consultas</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Diseño de autoridad</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="proj-preview"><div class="proj-preview-inner">
+            <div class="browser-chrome"><div class="browser-dots"><span style="background:#ff5f56"></span><span style="background:#ffbd2e"></span><span style="background:#27c93f"></span></div><div class="browser-url">Tu Team Uniforms</div></div>
+            <div class="proj-frame"><img src="proyecto-team-uniforms.png" width="1280" height="800" loading="lazy" decoding="async" alt="Tu Team Uniforms — landing premium para empresa textil B2B de Buenos Aires, desarrollada por Lucas Scolari, desarrollador web freelance Argentina" style="width:100%;height:100%;min-height:220px;object-fit:cover;object-position:center top;display:block;"></div>
+          </div></div>
+          <div class="proj-info">
+            <div class="proj-eyebrow">Textil para marcas · Buenos Aires</div>
+            <h3>Tu Team Uniforms</h3>
+            <div class="proj-verified"><i class="ti ti-circle-check" style="font-size:12px"></i> Verificado · en producción</div>
+            <p>Landing premium para una empresa de desarrollo, producción e importación textil para marcas, en Buenos Aires. Scroll narrativo, animaciones y un recorrido pensado para convertir visitas en consultas.</p>
+            <div class="proj-feats">
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Scroll narrativo</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Animaciones</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> Captación de leads</span>
+              <span class="proj-feat"><i class="ti ti-check" style="font-size:11px"></i> 100% responsive</span>
+            </div>
+            <div class="proj-links"><a href="https://keen-jelly-6c6201.netlify.app/" target="_blank" rel="noopener" class="proj-link" title="Ver Tu Team Uniforms en vivo">Ver en vivo <i class="ti ti-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+      </div>
+      <button class="carousel-btn carousel-next" id="projNext" type="button" aria-label="Proyecto siguiente"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+    </div>
+    <div class="carousel-dots" id="projDots" aria-label="Selección de proyecto"></div>
   </div>
 </section>
 
@@ -1470,6 +1483,25 @@ if(cf){cf.addEventListener('submit',async function(e){
   function getCurrentSection(){let cur='contacto';document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});return cur;}
   const floatWa=document.querySelector('.wa-float');
   if(floatWa){floatWa.addEventListener('click',function(){const sec=getCurrentSection();this.href='https://wa.me/543624131305?text='+(messages[sec]||messages['contacto']);});}
+})();
+
+// Carrusel de portfolio
+(function(){
+  const track=document.getElementById('projTrack');
+  if(!track)return;
+  const slides=[].slice.call(track.children);
+  const dotsWrap=document.getElementById('projDots');
+  const prev=document.getElementById('projPrev'),next=document.getElementById('projNext');
+  function go(i){i=Math.max(0,Math.min(slides.length-1,i));track.scrollTo({left:i*track.clientWidth,behavior:reduceMotion?'auto':'smooth'});}
+  function cur(){return Math.round(track.scrollLeft/track.clientWidth);}
+  slides.forEach(function(s,i){var d=document.createElement('button');d.className='carousel-dot';d.type='button';d.setAttribute('aria-label','Ir al proyecto '+(i+1));d.addEventListener('click',function(){go(i);});dotsWrap.appendChild(d);});
+  var dots=[].slice.call(dotsWrap.children);
+  function update(){var i=cur();dots.forEach(function(d,j){d.classList.toggle('active',j===i);});if(prev)prev.style.opacity=i===0?'0.4':'1';if(next)next.style.opacity=i>=slides.length-1?'0.4':'1';}
+  track.addEventListener('scroll',function(){window.requestAnimationFrame(update);},{passive:true});
+  if(prev)prev.addEventListener('click',function(){go(cur()-1);});
+  if(next)next.addEventListener('click',function(){go(cur()+1);});
+  window.addEventListener('resize',function(){window.requestAnimationFrame(update);});
+  update();
 })();
 </script>
 </body>
