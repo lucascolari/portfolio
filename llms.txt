@@ -1,32 +1,37 @@
-# Lucas Scolari — Desarrollador Web Freelance
+# Lucas Scolari — Desarrollador de Software
 
-> Desarrollador web freelance basado en Resistencia, Chaco, Argentina. Creo sitios web profesionales, landing pages y tiendas online 100% a medida (sin plantillas) para emprendedores y empresas de Argentina y el exterior.
+> Desarrollador de software basado en Resistencia, Chaco, Argentina. Diseño y construyo productos digitales y sitios web 100% a medida (sin plantillas): sitios corporativos, landing pages de alta conversión, tiendas online y experiencias interactivas con 3D. Trabajo con emprendedores y empresas de Argentina y el exterior.
 
-## Servicios y precios
+## Servicios
 
-- **Landing Page**: desde $150 USD. Página de aterrizaje optimizada para convertir, mobile-first.
-- **Sitio Web Completo**: desde $350 USD. Múltiples secciones, animaciones, SEO básico, formulario de contacto y WhatsApp integrado.
-- **Tienda Online / E-commerce**: desde $600 USD. Catálogo de productos, carrito y Mercado Pago integrado.
-- **Planes mensuales de mantenimiento**: Mantenimiento, Crecimiento ($70 USD/mes) y Pro ($130 USD/mes).
+- **Sitio web completo**: diseño a medida con múltiples secciones, SEO, formulario de contacto y WhatsApp integrado.
+- **Landing page**: página de aterrizaje mobile-first, optimizada para convertir visitantes en clientes.
+- **Tienda online / e-commerce**: catálogo, carrito y Mercado Pago integrado.
+- **Experiencias 3D e interactivas**: sitios con animaciones y WebGL en tiempo real para marcas que quieren destacarse.
 - **Auditoría gratuita**: análisis sin costo de sitios web existentes (velocidad, diseño, SEO y conversión).
+
+Cada proyecto se cotiza a medida según sus objetivos. La primera consulta es gratuita y sin compromiso.
 
 ## Garantías y condiciones
 
 - Respuesta en menos de 24 horas.
 - 30 días de soporte post-entrega incluidos en todos los proyectos.
 - Garantía de devolución: si en los primeros 7 días el cliente no está conforme con la dirección del diseño, se devuelve el 100% del anticipo.
+- Entrega en fecha garantizada o descuento por día de retraso.
 - Todo el código es a medida, no se usan plantillas.
 
-## Proyectos entregados
+## Proyectos
 
-- [Neaboats](https://neaboats.com): sitio web para broker náutico. Entregado antes del plazo pactado.
-- VNS Studio Barbería: sitio con sistema de turnos online que automatizó la coordinación de reservas.
-- C-Z Motos: sitio web para importadora de motos.
+- [Neaboats](https://neaboats.com): plataforma para broker náutico en el NEA, con catálogo y filtros. En producción.
+- [VNS Studio](https://vns-studio.vercel.app): sitio de barbería con sistema de turnos online en tiempo real. En producción.
+- [CZ Motos](https://c-zmotos.vercel.app): sitio para importadora de motos y triciclos Miami–Cuba. En producción.
+- [Tu Team Uniforms](https://keen-jelly-6c6201.netlify.app/): landing premium para empresa textil B2B de Buenos Aires. En producción.
+- [Estudio jurídico (demo)](https://lucascolari.github.io/demo-abogados/): demo interactiva con asistente de consultas 24/7 para el nicho legal.
 
 ## Contacto
 
 - Web: https://www.lucascolari.com
 - Email: hola@lucascolari.com
 - WhatsApp: +54 9 3624 13-1305
-- Brief para nuevos clientes: https://lucascolari.com/brief.html
+- Cotización gratuita: https://lucascolari.com/brief.html
 - Ubicación: Resistencia, Chaco, Argentina (atiende todo el país y el exterior de forma remota)
