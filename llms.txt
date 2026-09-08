@@ -1,14 +1,16 @@
 # Lucas Scolari — Desarrollador de Software
 
-> Desarrollador de software basado en Resistencia, Chaco, Argentina. Diseño y construyo productos digitales y sitios web 100% a medida (sin plantillas): sitios corporativos, landing pages de alta conversión, tiendas online y experiencias interactivas con 3D. Trabajo con emprendedores y empresas de Argentina y el exterior.
+> Desarrollador de software basado en Resistencia, Chaco, Argentina. Diseño y construyo soluciones digitales 100% a medida (sin plantillas): sitios web y landing pages, tiendas online, automatizaciones con inteligencia artificial, auditorías y software a medida para empresas y negocios. Trabajo con emprendedores, PyMEs y empresas de Argentina y el exterior.
 
 ## Servicios
 
-- **Sitio web completo**: diseño a medida con múltiples secciones, SEO, formulario de contacto y WhatsApp integrado.
-- **Landing page**: página de aterrizaje mobile-first, optimizada para convertir visitantes en clientes.
-- **Tienda online / e-commerce**: catálogo, carrito y Mercado Pago integrado.
-- **Experiencias 3D e interactivas**: sitios con animaciones y WebGL en tiempo real para marcas que quieren destacarse.
-- **Auditoría gratuita**: análisis sin costo de sitios web existentes (velocidad, diseño, SEO y conversión).
+- **Sitios web y landing pages**: diseño a medida, mobile-first, optimizado para SEO y conversión, con formulario de contacto y WhatsApp integrado.
+- **Tiendas online / e-commerce**: catálogo, carrito y Mercado Pago integrado.
+- **Automatizaciones con IA**: asistentes, chatbots e integraciones con inteligencia artificial que responden consultas, captan clientes y automatizan tareas repetitivas.
+- **Auditorías para negocios**: análisis profesional de una web o software existente (velocidad, seguridad, SEO, UX y conversión) con un informe de mejoras concretas y priorizadas.
+- **Software a medida e integraciones**: aplicaciones y herramientas internas (paneles de gestión, sistemas de reservas/turnos, integraciones entre plataformas).
+- **Experiencias 3D e interactivas**: sitios con animaciones y WebGL en tiempo real.
+- **Auditoría inicial gratuita**: análisis sin costo de un sitio existente, sin compromiso.
 
 Cada proyecto se cotiza a medida según sus objetivos. La primera consulta es gratuita y sin compromiso.
 
