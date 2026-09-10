@@ -334,18 +334,23 @@ document.addEventListener('DOMContentLoaded',()=>{
 <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
 <link rel="dns-prefetch" href="https://connect.facebook.net"/>
 <!-- Fuentes: carga no bloqueante (media=print + onload) con respaldo en <noscript> -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'"/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'"/>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin/>
+<link rel="preload" as="style" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"/>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" media="print" onload="this.media='all'"/>
 <!-- Iconos Tabler: carga no bloqueante para acelerar el primer pintado -->
 <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" media="print" onload="this.media='all'"/>
 <noscript>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Inter:wght@300;400;500&display=swap"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"/>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
 </noscript>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--g:#22C47A;--g2:#35E08F;--g3:#1AA066;--gdim:rgba(34,196,122,0.1);--gborder:rgba(34,196,122,0.22);--gglow:rgba(34,196,122,0.08);--bg:#08090A;--bg2:#0D0F10;--bg3:#131618;--bg4:#1A1E21;--border:rgba(255,255,255,0.055);--border2:rgba(255,255,255,0.1);--text:#F2F4F3;--text2:rgba(242,244,243,0.64);--text3:rgba(242,244,243,0.42);--r:16px;--rsm:10px;--font-display:'Syne',sans-serif;--font-body:'Inter',sans-serif;}
+:root{--g:#22C47A;--g2:#35E08F;--g3:#1AA066;--gdim:rgba(34,196,122,0.1);--gborder:rgba(34,196,122,0.22);--gglow:rgba(34,196,122,0.08);--bg:#08090A;--bg2:#0D0F10;--bg3:#131618;--bg4:#1A1E21;--border:rgba(255,255,255,0.055);--border2:rgba(255,255,255,0.1);--text:#F2F4F3;--text2:rgba(242,244,243,0.64);--text3:rgba(242,244,243,0.42);--r:16px;--rsm:10px;--font-display:'Satoshi',sans-serif;--font-body:'Inter',sans-serif;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html{scroll-behavior:smooth;overflow-x:hidden;scroll-padding-top:80px}
 body{font-family:var(--font-body);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
@@ -1103,59 +1108,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   </div>
 </section>
 
-<section class="guarantee-section">
-  <div class="inner">
-    <div class="sec-num">Garantías</div>
-    <h2 class="sec-title">Tu inversión está<br><em>protegida</em></h2>
-    <p class="sec-sub">Trabajo con compromisos reales, no promesas vacías.</p>
-    <div class="guarantee-wrap">
-      <div class="guarantee-item main reveal">
-        <div class="gi-badge"><i class="ti ti-shield-check" style="font-size:10px"></i> Garantía principal</div>
-        <div class="gi-icon"><i class="ti ti-refresh"></i></div>
-        <div class="gi-title">7 días o te devuelvo el anticipo</div>
-        <div class="gi-desc">Si en los primeros 7 días del proyecto no estás conforme con la dirección del diseño, te devuelvo el 100% del anticipo. Sin discusiones.</div>
-      </div>
-      <div class="guarantee-item reveal">
-        <div class="gi-icon"><i class="ti ti-clock"></i></div>
-        <div class="gi-title">Entrega en fecha o descuento</div>
-        <div class="gi-desc">Me comprometo a una fecha de entrega antes de empezar. Si me paso sin aviso previo, aplicamos un descuento por cada día de retraso.</div>
-      </div>
-      <div class="guarantee-item reveal">
-        <div class="gi-icon"><i class="ti ti-tools"></i></div>
-        <div class="gi-title">30 días de soporte gratis</div>
-        <div class="gi-desc">Una vez entregado el sitio, tenés 30 días de soporte gratuito para ajustes menores. Tu web tiene que funcionar perfecta desde el día uno.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="faq-section" style="padding:5rem 3rem">
-  <div class="inner">
-    <div class="sec-num">FAQ</div>
-    <h2 class="sec-title">Todo lo que<br>querés <em>saber</em></h2>
-    <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Cuánto tarda en estar lista mi web? <i class="ti ti-plus"></i></button><div class="faq-a">Depende de la complejidad. Una landing puede estar en 5-7 días. Un sitio completo lleva entre 2 y 4 semanas. Te doy una fecha exacta antes de empezar.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Necesito saber algo de tecnología? <i class="ti ti-plus"></i></button><div class="faq-a">Para nada. Me encargo de todo. Solo necesito que me cuentes tu negocio y objetivos.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Cómo son los pagos? <i class="ti ti-plus"></i></button><div class="faq-a">50% al inicio y 50% a la entrega. Acepto transferencia bancaria, criptomonedas y efectivo.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Qué pasa si quiero cambios después? <i class="ti ti-plus"></i></button><div class="faq-a">Los primeros 30 días son gratuitos para ajustes menores. Para cambios mayores tenemos planes mensuales accesibles.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Me enseñás a usar el sitio? <i class="ti ti-plus"></i></button><div class="faq-a">Sí. Al entregar hago una videollamada o grabo un tutorial para que puedas manejarte solo.</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="auditoria" aria-label="Auditoría gratuita de sitios web" style="padding:5rem 3rem;background:var(--bg2);border-top:0.5px solid var(--border)">
-  <div class="inner" style="max-width:1200px;margin:0 auto">
-    <div style="background:linear-gradient(135deg,var(--gdim),transparent 60%);border:1px solid var(--gborder);border-radius:var(--r);padding:3rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem">
-      <div style="max-width:560px">
-        <div class="sec-num">Gratis · Sin compromiso</div>
-        <h2 class="sec-title" style="margin-bottom:0.8rem">¿Ya tenés una web?<br>Te hago una <em>auditoría gratis</em></h2>
-        <p style="color:var(--text2);line-height:1.7;font-size:15px">Mandame el link de tu sitio actual y en menos de 48hs te devuelvo un video corto con 3 a 5 mejoras concretas: velocidad, diseño, SEO y conversión. Sin compromiso, te lo quedás aunque no trabajemos juntos.</p>
-      </div>
-      <a href="https://wa.me/543624131305?text=Hola%20Lucas%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20web.%20El%20link%20es%3A%20" target="_blank" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','click_whatsapp',{event_category:'contacto',event_label:'auditoria_gratis'})" style="flex-shrink:0"><i class="ti ti-search"></i> Pedir mi auditoría gratis</a>
-    </div>
-  </div>
-</section>
-
 <section id="portfolio" class="portfolio-section" aria-label="Portfolio de proyectos web">
   <div class="inner">
     <div class="sec-num">Portfolio</div>
@@ -1283,6 +1235,59 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
       <button class="carousel-btn carousel-next" id="projNext" type="button" aria-label="Proyecto siguiente"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
     </div>
     <div class="carousel-dots" id="projDots" aria-label="Selección de proyecto"></div>
+  </div>
+</section>
+
+<section class="faq-section" style="padding:5rem 3rem">
+  <div class="inner">
+    <div class="sec-num">FAQ</div>
+    <h2 class="sec-title">Todo lo que<br>querés <em>saber</em></h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Cuánto tarda en estar lista mi web? <i class="ti ti-plus"></i></button><div class="faq-a">Depende de la complejidad. Una landing puede estar en 5-7 días. Un sitio completo lleva entre 2 y 4 semanas. Te doy una fecha exacta antes de empezar.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Necesito saber algo de tecnología? <i class="ti ti-plus"></i></button><div class="faq-a">Para nada. Me encargo de todo. Solo necesito que me cuentes tu negocio y objetivos.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Cómo son los pagos? <i class="ti ti-plus"></i></button><div class="faq-a">50% al inicio y 50% a la entrega. Acepto transferencia bancaria, criptomonedas y efectivo.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Qué pasa si quiero cambios después? <i class="ti ti-plus"></i></button><div class="faq-a">Los primeros 30 días son gratuitos para ajustes menores. Para cambios mayores tenemos planes mensuales accesibles.</div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">¿Me enseñás a usar el sitio? <i class="ti ti-plus"></i></button><div class="faq-a">Sí. Al entregar hago una videollamada o grabo un tutorial para que puedas manejarte solo.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="auditoria" aria-label="Auditoría gratuita de sitios web" style="padding:5rem 3rem;background:var(--bg2);border-top:0.5px solid var(--border)">
+  <div class="inner" style="max-width:1200px;margin:0 auto">
+    <div style="background:linear-gradient(135deg,var(--gdim),transparent 60%);border:1px solid var(--gborder);border-radius:var(--r);padding:3rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem">
+      <div style="max-width:560px">
+        <div class="sec-num">Gratis · Sin compromiso</div>
+        <h2 class="sec-title" style="margin-bottom:0.8rem">¿Ya tenés una web?<br>Te hago una <em>auditoría gratis</em></h2>
+        <p style="color:var(--text2);line-height:1.7;font-size:15px">Mandame el link de tu sitio actual y en menos de 48hs te devuelvo un video corto con 3 a 5 mejoras concretas: velocidad, diseño, SEO y conversión. Sin compromiso, te lo quedás aunque no trabajemos juntos.</p>
+      </div>
+      <a href="https://wa.me/543624131305?text=Hola%20Lucas%2C%20quiero%20la%20auditor%C3%ADa%20gratis%20de%20mi%20web.%20El%20link%20es%3A%20" target="_blank" class="btn-primary" onclick="if(typeof gtag==='function')gtag('event','click_whatsapp',{event_category:'contacto',event_label:'auditoria_gratis'})" style="flex-shrink:0"><i class="ti ti-search"></i> Pedir mi auditoría gratis</a>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee-section">
+  <div class="inner">
+    <div class="sec-num">Garantías</div>
+    <h2 class="sec-title">Tu inversión está<br><em>protegida</em></h2>
+    <p class="sec-sub">Trabajo con compromisos reales, no promesas vacías.</p>
+    <div class="guarantee-wrap">
+      <div class="guarantee-item main reveal">
+        <div class="gi-badge"><i class="ti ti-shield-check" style="font-size:10px"></i> Garantía principal</div>
+        <div class="gi-icon"><i class="ti ti-refresh"></i></div>
+        <div class="gi-title">7 días o te devuelvo el anticipo</div>
+        <div class="gi-desc">Si en los primeros 7 días del proyecto no estás conforme con la dirección del diseño, te devuelvo el 100% del anticipo. Sin discusiones.</div>
+      </div>
+      <div class="guarantee-item reveal">
+        <div class="gi-icon"><i class="ti ti-clock"></i></div>
+        <div class="gi-title">Entrega en fecha o descuento</div>
+        <div class="gi-desc">Me comprometo a una fecha de entrega antes de empezar. Si me paso sin aviso previo, aplicamos un descuento por cada día de retraso.</div>
+      </div>
+      <div class="guarantee-item reveal">
+        <div class="gi-icon"><i class="ti ti-tools"></i></div>
+        <div class="gi-title">30 días de soporte gratis</div>
+        <div class="gi-desc">Una vez entregado el sitio, tenés 30 días de soporte gratuito para ajustes menores. Tu web tiene que funcionar perfecta desde el día uno.</div>
+      </div>
+    </div>
   </div>
 </section>
 
