@@ -843,6 +843,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .reveal{opacity:1!important;transform:none!important}
   .ticker-track,.typing-cursor,.hero-mesh::before,.hero-mesh::after,.scroll-line,.hero-tag-dot,.hc-avail::before,.avail-badge::before{animation:none!important}
 }
+/* ===== Capa 3D (preview): tilt en cards ===== */
+.carousel-track{perspective:1200px}
+.services-grid,.plans-grid{perspective:1400px}
+.project-card,.sc,.plan-card{transform-style:preserve-3d;transition:transform .18s cubic-bezier(.22,.61,.36,1),box-shadow .25s}
+.project-card.tilt-on,.sc.tilt-on,.plan-card.tilt-on{box-shadow:0 1px 2px rgba(0,0,0,.3),0 24px 60px rgba(0,0,0,.45),0 0 0 1px var(--gborder)}
+.sc .sc-icon,.plan-card h3{transition:transform .18s ease}
+.sc.tilt-on .sc-icon{transform:translateZ(36px) scale(1.06)}
+.plan-card.tilt-on h3{transform:translateZ(28px)}
+.project-card .proj-preview{transition:transform .18s ease}
+.project-card.tilt-on .proj-preview{transform:translateZ(44px)}
+@media(prefers-reduced-motion:reduce){
+  .project-card,.sc,.plan-card{transform:none!important;transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -1506,6 +1519,31 @@ if(cf){cf.addEventListener('submit',async function(e){
   window.addEventListener('resize',function(){window.requestAnimationFrame(update);});
   update();
 })();
+</script>
+<!-- ===== Capa 3D (preview): tilt en cards ===== -->
+<script defer>
+window.addEventListener('load',function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+
+  /* ---------- Tilt 3D en cards (portfolio, servicios, planes) ---------- */
+  function addTilt(el,max){
+    var raf=null,tx=0,ty=0;
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width-0.5;
+      var py=(e.clientY-r.top)/r.height-0.5;
+      ty=px*max; tx=-py*max;
+      if(!raf)raf=requestAnimationFrame(apply);
+    });
+    function apply(){raf=null;el.style.transform='rotateX('+tx.toFixed(2)+'deg) rotateY('+ty.toFixed(2)+'deg)';}
+    el.addEventListener('mouseenter',function(){el.classList.add('tilt-on');});
+    el.addEventListener('mouseleave',function(){el.classList.remove('tilt-on');el.style.transform='';});
+  }
+  document.querySelectorAll('.project-card').forEach(function(c){addTilt(c,7);});
+  document.querySelectorAll('.sc').forEach(function(c){addTilt(c,9);});
+  document.querySelectorAll('.plan-card').forEach(function(c){addTilt(c,6);});
+});
 </script>
 </body>
 </html>
